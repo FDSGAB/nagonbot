@@ -9,11 +9,11 @@
     },
     {"tag": "天気",
         "patterns": ["天気", "てんき", "今日の天気", "きょうのてんき", "雨かな", "今日雨？"],
-        "responses": ["konnichiha ogenki desuka?", "konnichiwa genki?", "ohayou!", "ohayougozaimasu!", "konbanha.", "konbanwa!"]
+        "responses": ["雨が降るかな", "私も分からないよ！", "雨でしょう？", "晴れ！晴れ！晴れ！", "まだ曇っているの？", "いい天気ですように"]
     },
     {"tag": "時間",
-        "patterns": ["時間", "じかん", "今、何時？", "今は何時ですか", "konbanha", "konbanwa"],
-        "responses": ["konnichiha ogenki desuka?", "konnichiwa genki?", "ohayou!", "ohayougozaimasu!", "konbanha.", "konbanwa!"]
+        "patterns": ["時間", "じかん", "今、何時？", "今は何時ですか", "今何時", "じかんは？"],
+        "responses": ["寝る時間ですよ！", "仕事はもう終わった？", "食べる時間！", "多分零時ですね", "パソコンで調べましょう！", "時間？分からない"]
     },
     {"tag": "aisatsu",
         "patterns": ["konnichiha", "konnichiwa", "ohayou", "ohayougozaimasu", "konbanha", "konbanwa"],
