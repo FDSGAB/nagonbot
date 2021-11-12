@@ -50,7 +50,7 @@ words = sorted(set(words))           #Não sei se vale a pena no caso comentei p
 #print(words)
 
 pickle.dump(documents, open('documents.pkl', 'wb'))
-pickle.dump(documents, open('classes.pkl', 'wb'))
+pickle.dump(classes, open('classes.pkl', 'wb'))
 
 
 #PARTE DE DEEP LEARNING
@@ -90,6 +90,6 @@ model.add(Dense(len(train_y[0]), activation='softmax'))
 sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
-model.fit(numpy.array(train_x), numpy.array(train_y), epochs=200, batch_size = 5, verbose = 1)
-model.save('nagon_model.model')
+hist = model.fit(numpy.array(train_x), numpy.array(train_y), epochs=200, batch_size = 5, verbose = 1)
+model.save('nagonmodel.h5', hist)
 print("Done")
