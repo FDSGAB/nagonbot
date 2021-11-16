@@ -5,7 +5,7 @@ import pickle
 import numpy 
 
 import nltk 
-from nltk.corpus import knbc                #Japanese language import
+from nltk.corpus import knbc                #Japanese language import/
 from nltk.stem import WordNetLemmatizer
 
 from tensorflow.keras.models import Sequential
@@ -35,13 +35,19 @@ for koko in kokoro['kokoro']:
     for pattern in koko['patterns']:
         #word_list = nltk.word_tokenize(pattern, language='japanese')    #ERRO AQUIII
         #word_list = knbc.words(pattern)                                 #tokenize e knbc n funcionam, procurar mais sobre depois :/
+        #word_list = nltk.RegexpTokenizer(pattern)
+        #print(word_list[0])
         word_list = pattern
-        words.extend(word_list)                                          #Troucou .append() por .extend()  (necessário?)
+        words.extend(word_list[0])                                          #Troucou .append() por .extend()  (necessário?)
         documents.append((word_list, koko['tag']))
         if koko['tag'] not in classes:
             classes.append(koko['tag'])
 
-#print(documents)                    #Fim da primeira parte!!!
+print(documents)                    #Fim da primeira parte!!!
+
+print(word_list)
+
+print("ACABA AQUI")
 
 classes = sorted(set(classes))        #remove entradas duplicadas
 
