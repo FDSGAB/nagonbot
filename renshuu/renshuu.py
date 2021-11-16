@@ -4,6 +4,7 @@ import json
 import pickle
 import numpy 
 
+import fugashi
 import nltk 
 from nltk.corpus import knbc                #Japanese language import/
 from nltk.stem import WordNetLemmatizer
@@ -13,6 +14,8 @@ from tensorflow.keras.layers import Dense, Activation, Dropout
 from tensorflow.keras.optimizers import SGD
 
 from pathlib import Path
+
+tagger = fugashi.Tagger()
 
 #Aqui eu utilizei essas funções path para pegar o endereço do JSON poder usar na open()
 data_folder = Path("D:/REP_programas_Python/NagonBot.py/kokoro JSON/")
@@ -36,26 +39,27 @@ for koko in kokoro['kokoro']:
         #word_list = nltk.word_tokenize(pattern, language='japanese')    #ERRO AQUIII
         #word_list = knbc.words(pattern)                                 #tokenize e knbc n funcionam, procurar mais sobre depois :/
         #word_list = nltk.RegexpTokenizer(pattern)
-        #print(word_list[0])
-        word_list = pattern
-        words.extend(word_list[0])                                          #Troucou .append() por .extend()  (necessário?)
+        word_list = [word.surface for word in tagger(pattern)]
+        words.extend(word_list)                                          #Troucou .append() por .extend()  (necessário?)
         documents.append((word_list, koko['tag']))
         if koko['tag'] not in classes:
             classes.append(koko['tag'])
 
 print(documents)                    #Fim da primeira parte!!!
 
-print(word_list)
-
 print("ACABA AQUI")
 
 classes = sorted(set(classes))        #remove entradas duplicadas
 
-words = sorted(set(words))           #Não sei se vale a pena no caso comentei por enquanto, SÒ SAO AS LETRAS N FUNCIONA
+words = [word for word in words if word not in ignore_letters]
+words = sorted(set(words))   
 
+
+
+print(words)
 #print(words)
 
-pickle.dump(documents, open('documents.pkl', 'wb'))
+pickle.dump(words, open('words.pkl', 'wb'))
 pickle.dump(classes, open('classes.pkl', 'wb'))
 
 
@@ -67,8 +71,10 @@ output_empty = [0] * len(classes)
 #AD LIB como o words não funciona no momento, estou tentando substituir com o documents e ver se uso as frases
 for document in documents:
     bag = []
-    sentence_patterns = document[0]
-    bag.append(1) if document[0] in sentence_patterns else bag.append(0)
+    word_patterns = document[0]
+    for word in words:
+        bag.append(1) if document[0] in word_patterns else bag.append(0)
+    
 
     output_row = list(output_empty)
     output_row[classes.index(document[1])] = 1
