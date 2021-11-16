@@ -52,7 +52,7 @@ def predict_class(sentence):
     res = model.predict(numpy.array([bow]))[0]
     #print("RES:", bow)
     ERROR_THRESHOLD = 0.25
-    results = [[i,r] for i, r in enumerate(res) if r > 0.1]         #Esta estranho aqui o bot não sabe o que faz
+    results = [[i,r] for i, r in enumerate(res) if r > 0.1]         #Esta estranho aqui o bot não sabe o que faz só pega a classe sayounara por algum motivo????
     #print("RESULTS:", results)
 
     results.sort(key=lambda x: x[1], reverse=True)
