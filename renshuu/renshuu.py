@@ -5,9 +5,9 @@ import pickle
 import numpy 
 
 import fugashi
-import nltk 
-from nltk.corpus import knbc                #Japanese language import/
-from nltk.stem import WordNetLemmatizer
+#import nltk 
+#from nltk.corpus import knbc                #Japanese language import/
+#from nltk.stem import WordNetLemmatizer
 
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Activation, Dropout

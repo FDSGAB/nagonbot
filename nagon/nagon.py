@@ -78,7 +78,3 @@ while True:
     ints = predict_class(message)
     res = get_response(ints, kokoro)
     print(res)
-"""
-**************************NAO FUNCIONA**************************
-
-"""
