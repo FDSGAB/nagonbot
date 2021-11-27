@@ -30,8 +30,6 @@ words = pickle.load(open('words.pkl', 'rb'))
 classes = pickle.load(open('classes.pkl', 'rb'))
 model = load_model('nagonmodel.h5')
 
-#print("PALAVRAS:", words)
-#print("CLASSES:", classes)
 
 def clean_up_sentece(sentence):
     sentence_words = [word.surface for word in tagger(sentence)]
@@ -48,12 +46,9 @@ def bag_of_words(sentence):
 
 def predict_class(sentence):
     bow = bag_of_words(sentence)
-    #print("BOW:", bow)
     res = model.predict(numpy.array([bow]))[0]
-    #print("RES:", bow)
     ERROR_THRESHOLD = 0.25
-    results = [[i,r] for i, r in enumerate(res) if r > 0.1]         #Esta estranho aqui o bot não sabe o que faz só pega a classe sayounara por algum motivo????
-    #print("RESULTS:", results)
+    results = [[i,r] for i, r in enumerate(res) if r > 0.1]      
 
     results.sort(key=lambda x: x[1], reverse=True)
     return_list = []
@@ -63,7 +58,6 @@ def predict_class(sentence):
 
 
 def get_response(kokoro_list, kokoro_json):
-    print(kokoro_list)
     tag = kokoro_list[0]['koko']                #koko ou kokoro?
     list_of_kokoro = kokoro_json['kokoro']
     for i in list_of_kokoro:

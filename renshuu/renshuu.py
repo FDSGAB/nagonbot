@@ -11,19 +11,42 @@ Em seguida, eles são lidos e armazenados em listas e salvos em .pkl..........
 
 
 """
-import random
-import json
-import pickle
-import numpy 
 
+
+
+
+#Bibliotecas para manipulação de arquivos
+import json
+from pathlib import Path
+import pickle
+
+#Bibliotecas matemáticas
+import numpy 
+import random
+
+#Biblioteca para separar palavras de frases em japonês
 import fugashi
 
+#Bibliotecas de Machine Learning / Deep Learning
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Activation, Dropout
 from tensorflow.keras.optimizers import SGD
 
-from pathlib import Path
 
+
+
+
+
+
+
+"""
+
+----------------------Coleta dos padrões de pergunta e resposta do arquivo JSON-------------------------------
+
+
+"""
+
+#Vai ser utilizado para separas as palavras em japonês nos padrões
 tagger = fugashi.Tagger()
 
 #Aqui eu utilizei essas funções path para pegar o endereço do JSON poder usar na open()
@@ -36,10 +59,10 @@ kokoro = json.loads(open(file_to_open, encoding="utf8").read()) #Recebe o arquiv
 
 
 #Cria as listas de controle 
-words = []              #Palavras que serão utilizadas
-classes = []            #Classes que serão utilizadas
-documents = []          #Combinações 'pertences'
-ignore_letters = ['。', '、', '！', '？', '「', '」']   #Caracteres que serão ignorados
+words = []                                               #Palavras que serão utilizadas
+classes = []                                             #Classes que serão utilizadas
+documents = []                                           #Combinações 'pertences'
+ignore_letters = ['。', '、', '！', '？', '「', '」']     #Caracteres que serão ignorados
 
 
 
@@ -86,7 +109,7 @@ pickle.dump(classes, open('classes.pkl', 'wb'))
 """
 
 
--------------------PARTE DE DEEP LEARNING----------------------------
+-------------------TREINAMENTO (PARTE DE DEEP LEARNING)----------------------------
 
 
 """
@@ -98,7 +121,7 @@ for document in documents:
     bag = []
     word_patterns = document[0]
     for word in words:
-        bag.append(1) if document[0] in word_patterns else bag.append(0)
+        bag.append(1) if word in word_patterns else bag.append(0)
     
 
     output_row = list(output_empty)
