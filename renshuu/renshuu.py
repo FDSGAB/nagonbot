@@ -1,13 +1,22 @@
-import os
+"""
+
+
+
+-----------------------Arquivo de treinamento----------------------------
+
+    Esse arquivo é responsável por treinar o modelo do chat-bot. Primeiramente,
+abre-se um arquivo JSON com os padrões de pergunta e resposta do bot em japonês.
+Em seguida, eles são lidos e armazenados em listas e salvos em .pkl..........
+
+
+
+"""
 import random
 import json
 import pickle
 import numpy 
 
 import fugashi
-#import nltk 
-#from nltk.corpus import knbc                #Japanese language import/
-#from nltk.stem import WordNetLemmatizer
 
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Activation, Dropout
@@ -27,7 +36,7 @@ kokoro = json.loads(open(file_to_open, encoding="utf8").read()) #Recebe o arquiv
 
 
 #Cria as listas de controle 
-words = []              #Palavras que serão utilizadas, PROBLEMA: SOMENTE AS LETRAS SAO COLETADAS
+words = []              #Palavras que serão utilizadas
 classes = []            #Classes que serão utilizadas
 documents = []          #Combinações 'pertences'
 ignore_letters = ['。', '、', '！', '？', '「', '」']   #Caracteres que serão ignorados
@@ -36,39 +45,55 @@ ignore_letters = ['。', '、', '！', '？', '「', '」']   #Caracteres que se
 
 for koko in kokoro['kokoro']:                   
     for pattern in koko['patterns']:
-        #word_list = nltk.word_tokenize(pattern, language='japanese')    #ERRO AQUIII
-        #word_list = knbc.words(pattern)                                 #tokenize e knbc n funcionam, procurar mais sobre depois :/
-        #word_list = nltk.RegexpTokenizer(pattern)
         word_list = [word.surface for word in tagger(pattern)]
-        words.extend(word_list)                                          #Troucou .append() por .extend()  (necessário?)
+        words.extend(word_list)
         documents.append((word_list, koko['tag']))
         if koko['tag'] not in classes:
             classes.append(koko['tag'])
 
-print(documents)                    #Fim da primeira parte!!!
-
-print("ACABA AQUI")
-
-classes = sorted(set(classes))        #remove entradas duplicadas
-
-words = [word for word in words if word not in ignore_letters]
-words = sorted(set(words))   
+print("\n\n DOCUMENTS:\n",documents)
 
 
 
-print(words)
-#print(words)
+
+
+
+
+"""
+
+
+--------------------Salva as palavras e classes dentro de um .pkl---------------------
+
+
+"""
+
+classes = sorted(set(classes))                                      #remove entradas duplicadas
+
+words = [word for word in words if word not in ignore_letters]      #retira os caracteres ignorados
+words = sorted(set(words))                                          #remove entradas duplicadas
+
+print("\n\n WORDS:\n",words)
 
 pickle.dump(words, open('words.pkl', 'wb'))
 pickle.dump(classes, open('classes.pkl', 'wb'))
 
 
-#PARTE DE DEEP LEARNING
+
+
+
+
+
+"""
+
+
+-------------------PARTE DE DEEP LEARNING----------------------------
+
+
+"""
 
 training = []
 output_empty = [0] * len(classes)
 
-#AD LIB como o words não funciona no momento, estou tentando substituir com o documents e ver se uso as frases
 for document in documents:
     bag = []
     word_patterns = document[0]
@@ -87,8 +112,18 @@ train_x = list(training[:, 0])
 train_y = list(training[:, 1])
 
 
+
+
+
+
+
+
 """
-Construindo o módulo da rede neural (NEURAL NETWORK THEORY):
+
+
+------------------------Construindo o módulo da rede neural (NEURAL NETWORK THEORY)--------------------------
+
+
 """
 
 model = Sequential()
