@@ -53,12 +53,12 @@ def predict_class(sentence):
     results.sort(key=lambda x: x[1], reverse=True)
     return_list = []
     for r in results:
-        return_list.append({'koko': classes[r[0]], 'probability': str(r[1])}) #koko ou kokoro?
+        return_list.append({'koko': classes[r[0]], 'probability': str(r[1])})
     return return_list
 
 
 def get_response(kokoro_list, kokoro_json):
-    tag = kokoro_list[0]['koko']                #koko ou kokoro?
+    tag = kokoro_list[0]['koko']               
     list_of_kokoro = kokoro_json['kokoro']
     for i in list_of_kokoro:
         if i['tag'] == tag:
