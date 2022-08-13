@@ -15,6 +15,8 @@ from tensorflow.keras.optimizers import SGD
 
 from pathlib import Path
 
+from datetime import datetime
+
 tagger = fugashi.Tagger()
 
 #Aqui eu utilizei essas funções path para pegar o endereço do JSON poder usar na open()
@@ -56,12 +58,18 @@ def predict_class(sentence):
         return_list.append({'koko': classes[r[0]], 'probability': str(r[1])})
     return return_list
 
+def get_time ():
+    str = "今は" + datetime.now().strftime("%H:%M:%S") + "です。"
+    return str
+
 
 def get_response(kokoro_list, kokoro_json):
     tag = kokoro_list[0]['koko']               
     list_of_kokoro = kokoro_json['kokoro']
     for i in list_of_kokoro:
         if i['tag'] == tag:
+            if tag == "時間":
+                return get_time()
             result = random.choice(i['responses'])
             break
     return result
