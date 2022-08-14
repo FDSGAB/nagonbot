@@ -1,4 +1,5 @@
 import os
+import pyttsx3
 import random
 import json
 import pickle
@@ -16,6 +17,13 @@ from tensorflow.keras.optimizers import SGD
 from pathlib import Path
 
 from datetime import datetime
+
+#Comandos de texto para voz　(Aqui precisa achar Japones na maquina de destiono, so funciona nessa assim)
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+engine.setProperty("voice", voices[2].id)
+engine.setProperty("rate", 135)
+
 
 tagger = fugashi.Tagger()
 
@@ -59,7 +67,7 @@ def predict_class(sentence):
     return return_list
 
 def get_time ():
-    str = "今は" + datetime.now().strftime("%H:%M:%S") + "です。"
+    str = "今は" + datetime.now().strftime("%H:%M") + "です。"
     return str
 
 
@@ -73,10 +81,16 @@ def get_response(kokoro_list, kokoro_json):
             result = random.choice(i['responses'])
             break
     return result
-print("ナゴンが起きた！")
+engine.say("わあ、起きちゃった")
+print("わあ、起きちゃった")
+engine.runAndWait()
 
 while True:
     message = input("")
     ints = predict_class(message)
     res = get_response(ints, kokoro)
+    engine.say(res)
     print(res)
+    engine.runAndWait()
+    if message == "オフ":
+        break
