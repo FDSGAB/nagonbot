@@ -1,7 +1,4 @@
-from functions import get_time
-
 import os
-import pyttsx3
 import random
 import json
 import pickle
@@ -11,28 +8,14 @@ import fugashi
 import nltk 
 from nltk.corpus import knbc                #Japanese language import
 from nltk.stem import WordNetLemmatizer
-from functions import get_time
+from renshuu import * #Executa o arquivo por completo
+from functions import get_time, voice_start, voice_answer
 
 from tensorflow.keras.models import load_model
 from tensorflow.keras.layers import Dense, Activation, Dropout
 from tensorflow.keras.optimizers import SGD
 
 from pathlib import Path
-
-from datetime import datetime
-
-#Executa o módulo de treino antes de iniciar o programa
-Renshuu_Folder = Path("D:/REP_programas_Python/nagonbot/renshuu/")
-renshuu_open = Renshuu_Folder / "renshuu.py"
-exec(open(renshuu_open, encoding="utf8").read())
-
-
-#Comandos de texto para voz　(Aqui precisa achar Japones na maquina de destiono, so funciona nessa assim)
-engine = pyttsx3.init()
-voices = engine.getProperty('voices')
-engine.setProperty("voice", voices[2].id)
-engine.setProperty("rate", 135)
-
 
 tagger = fugashi.Tagger()
 
@@ -77,39 +60,25 @@ def predict_class(sentence):
         return_list.append({'koko': classes[r[0]], 'probability': str(r[1])})
     return return_list
 
-#Endereços das funções
-Functions_Folder = Path("D:/REP_programas_Python/nagonbot/Functions/")
-GetTime_open = Functions_Folder / "Date_Time.py"
-
 #Com base na classe da mensagem prevista, essa função retorna uma resposta adequada
 def get_response(kokoro_list, kokoro_json):
     tag = kokoro_list[0]['koko']               
     list_of_kokoro = kokoro_json['kokoro']
     for i in list_of_kokoro:
         if i['tag'] == tag:
-            if tag == "時間":
-                return get_time(0)
-            if tag == "日付":
-                return get_time(1)
-            if tag == "曜日":
-                return get_time(2)
+            if tag in ["時間" , "日付" , "曜日"]:
+                return get_time(tag)
             result = random.choice(i['responses'])
             break
     return result
 
-#Mensagem para avisar que o programa está rodando
-engine.say("わ、起きちゃった")
-print("わ、起きちゃった")
-engine.runAndWait()
-
+engine = voice_start()
 
 #Loop principal para o funcionamento do chatbot com opção de desligá-lo
 while True:
     message = input("")
     ints = predict_class(message)
     res = get_response(ints, kokoro)
-    engine.say(res)
-    print(res)
-    engine.runAndWait()
+    voice_answer(res,engine)
     if message == "オフ":
         break

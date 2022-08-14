@@ -1,16 +1,15 @@
 from datetime import datetime
 
 #Funções relacionadas a datas e tempo (retiradas do sistema)
-def get_time (n):
+def get_time (n:str) -> str:
     #Caso para devolver o horário
-    if n == 0:
+    if n == "時間":
         str = "今は" + datetime.now().strftime("%H:%M") + "です。"
     #Caso para devolver a data
-    if n == 1: 
+    if n == "日付": 
         str = "今日は" + datetime.now().strftime("%Y-%m-%d") + "です。"
     #Caso para devolver o nome do dia da semana
-    if n == 2:
-        str = "ERROR"
+    if n == "曜日":
         if int(datetime.now().strftime("%w")) == 0:
             str = "今日は日曜日です。"
         if int(datetime.now().strftime("%w")) == 1:
