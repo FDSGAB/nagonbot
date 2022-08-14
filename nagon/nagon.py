@@ -54,6 +54,8 @@ def bag_of_words(sentence):
                 bag[i] = 1
     return numpy.array(bag)
 
+
+#Função que tenta acertar a classe da mensagem enviada
 def predict_class(sentence):
     bow = bag_of_words(sentence)
     res = model.predict(numpy.array([bow]))[0]
@@ -66,25 +68,59 @@ def predict_class(sentence):
         return_list.append({'koko': classes[r[0]], 'probability': str(r[1])})
     return return_list
 
-def get_time ():
-    str = "今は" + datetime.now().strftime("%H:%M") + "です。"
+
+#Funções relacionadas a datas e tempo (retiradas do sistema)
+def get_time (n):
+    #Caso para devolver o horário
+    if n == 0:
+        str = "今は" + datetime.now().strftime("%H:%M") + "です。"
+    #Caso para devolver a data
+    if n == 1: 
+        str = "今日は" + datetime.now().strftime("%Y-%m-%d") + "です。"
+    #Caso para devolver o nome do dia da semana
+    if n == 2:
+        str = "ERROR"
+        if int(datetime.now().strftime("%w")) == 0:
+            str = "今日は日曜日です。"
+        if int(datetime.now().strftime("%w")) == 1:
+            str = "今日は月曜日です。"
+        if int(datetime.now().strftime("%w")) == 2:
+            str = "今日は火曜日です。"
+        if int(datetime.now().strftime("%w")) == 3:
+            str = "今日は水曜日です。"
+        if int(datetime.now().strftime("%w")) == 4:
+            str = "今日は木曜日です。"
+        if int(datetime.now().strftime("%w")) == 5:
+            str = "今日は金曜日です。"
+        if int(datetime.now().strftime("%w")) == 6:
+            str = "今日は土曜日です。"
     return str
 
 
+
+#Com base na classe da mensagem prevista, essa função retorna uma resposta adequada
 def get_response(kokoro_list, kokoro_json):
     tag = kokoro_list[0]['koko']               
     list_of_kokoro = kokoro_json['kokoro']
     for i in list_of_kokoro:
         if i['tag'] == tag:
             if tag == "時間":
-                return get_time()
+                return get_time(0)
+            if tag == "日付":
+                return get_time(1)
+            if tag == "曜日":
+                return get_time(2)
             result = random.choice(i['responses'])
             break
     return result
-engine.say("わあ、起きちゃった")
-print("わあ、起きちゃった")
+
+#Mensagem para avisar que o programa está rodando
+engine.say("わ、起きちゃった")
+print("わ、起きちゃった")
 engine.runAndWait()
 
+
+#Loop principal para o funcionamento do chatbot com opção de desligá-lo
 while True:
     message = input("")
     ints = predict_class(message)
