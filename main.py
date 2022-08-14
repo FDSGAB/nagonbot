@@ -1,3 +1,5 @@
+from functions import get_time
+
 import os
 import pyttsx3
 import random
@@ -9,6 +11,7 @@ import fugashi
 import nltk 
 from nltk.corpus import knbc                #Japanese language import
 from nltk.stem import WordNetLemmatizer
+from functions import get_time
 
 from tensorflow.keras.models import load_model
 from tensorflow.keras.layers import Dense, Activation, Dropout
@@ -17,6 +20,12 @@ from tensorflow.keras.optimizers import SGD
 from pathlib import Path
 
 from datetime import datetime
+
+#Executa o módulo de treino antes de iniciar o programa
+Renshuu_Folder = Path("D:/REP_programas_Python/nagonbot/renshuu/")
+renshuu_open = Renshuu_Folder / "renshuu.py"
+exec(open(renshuu_open, encoding="utf8").read())
+
 
 #Comandos de texto para voz　(Aqui precisa achar Japones na maquina de destiono, so funciona nessa assim)
 engine = pyttsx3.init()
@@ -28,7 +37,7 @@ engine.setProperty("rate", 135)
 tagger = fugashi.Tagger()
 
 #Aqui eu utilizei essas funções path para pegar o endereço do JSON poder usar na open()
-data_folder = Path("D:/REP_programas_Python/NagonBot.py/kokoro JSON/")
+data_folder = Path("D:/REP_programas_Python/nagonbot/kokoro JSON/")
 file_to_open = data_folder / "kokoro.json"
 
 
@@ -68,35 +77,9 @@ def predict_class(sentence):
         return_list.append({'koko': classes[r[0]], 'probability': str(r[1])})
     return return_list
 
-
-#Funções relacionadas a datas e tempo (retiradas do sistema)
-def get_time (n):
-    #Caso para devolver o horário
-    if n == 0:
-        str = "今は" + datetime.now().strftime("%H:%M") + "です。"
-    #Caso para devolver a data
-    if n == 1: 
-        str = "今日は" + datetime.now().strftime("%Y-%m-%d") + "です。"
-    #Caso para devolver o nome do dia da semana
-    if n == 2:
-        str = "ERROR"
-        if int(datetime.now().strftime("%w")) == 0:
-            str = "今日は日曜日です。"
-        if int(datetime.now().strftime("%w")) == 1:
-            str = "今日は月曜日です。"
-        if int(datetime.now().strftime("%w")) == 2:
-            str = "今日は火曜日です。"
-        if int(datetime.now().strftime("%w")) == 3:
-            str = "今日は水曜日です。"
-        if int(datetime.now().strftime("%w")) == 4:
-            str = "今日は木曜日です。"
-        if int(datetime.now().strftime("%w")) == 5:
-            str = "今日は金曜日です。"
-        if int(datetime.now().strftime("%w")) == 6:
-            str = "今日は土曜日です。"
-    return str
-
-
+#Endereços das funções
+Functions_Folder = Path("D:/REP_programas_Python/nagonbot/Functions/")
+GetTime_open = Functions_Folder / "Date_Time.py"
 
 #Com base na classe da mensagem prevista, essa função retorna uma resposta adequada
 def get_response(kokoro_list, kokoro_json):
