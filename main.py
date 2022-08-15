@@ -17,6 +17,7 @@ from tensorflow.keras.optimizers import SGD
 
 from pathlib import Path
 
+#Vai ser utilizado para separas as palavras em japonês nos padrões
 tagger = fugashi.Tagger()
 
 #Aqui eu utilizei essas funções path para pegar o endereço do JSON poder usar na open()
