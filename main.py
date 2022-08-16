@@ -81,5 +81,5 @@ while True:
     ints = predict_class(message)
     res = get_response(ints, kokoro)
     voice_answer(res,engine)
-    if message == "オフ":
+    if ints[0]['koko']  in ["さようなら" , "寝るさようなら"]:
         break
