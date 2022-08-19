@@ -6,9 +6,9 @@ import numpy
 
 import fugashi
 import nltk 
-from nltk.corpus import knbc                #Japanese language import
+from nltk.corpus import knbc                        #Japanese language import
 from nltk.stem import WordNetLemmatizer
-from renshuu import * #Executa o arquivo por completo
+from renshuu import *                               #Executa o arquivo por completo
 from functions import get_time, voice_start, voice_answer
 
 from tensorflow.keras.models import load_model
