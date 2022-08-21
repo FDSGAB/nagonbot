@@ -9,7 +9,7 @@ import nltk
 from nltk.corpus import knbc                        #Japanese language import
 from nltk.stem import WordNetLemmatizer
 from renshuu import *                               #Executa o arquivo por completo
-from functions import get_time, voice_start, voice_answer
+from functions import get_time, voice_start, voice_answer, get_word_dic
 
 from tensorflow.keras.models import load_model
 from tensorflow.keras.layers import Dense, Activation, Dropout
@@ -69,13 +69,15 @@ def get_response(kokoro_list, kokoro_json):
         if i['tag'] == tag:
             if tag in ["時間" , "日付" , "曜日"]:
                 return get_time(tag)
+            if tag == "辞書":
+                return get_word_dic (engine)
             result = random.choice(i['responses'])
             break
     return result
 
 engine = voice_start()
 
-#Loop principal para o funcionamento do chatbot com opção de desligá-lo
+#Loop principal para o funcionamento do chatbot com opção de desligá-lo　se a tag for de despedida
 while True:
     message = input("")
     ints = predict_class(message)

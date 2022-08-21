@@ -74,7 +74,7 @@ for koko in kokoro['kokoro']:
         if koko['tag'] not in classes:
             classes.append(koko['tag'])
 
-print("\n\n DOCUMENTS:\n",documents)
+#print("\n\n DOCUMENTS:\n",documents) só printa o documento de lista de palavras
 
 
 
@@ -95,7 +95,7 @@ classes = sorted(set(classes))                                      #remove entr
 words = [word for word in words if word not in ignore_letters]      #retira os caracteres ignorados
 words = sorted(set(words))                                          #remove entradas duplicadas
 
-print("\n\n WORDS:\n",words)
+#print("\n\n WORDS:\n",words) print de todas as palavras
 
 pickle.dump(words, open('words.pkl', 'wb'))
 pickle.dump(classes, open('classes.pkl', 'wb'))
@@ -162,4 +162,4 @@ model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy
 
 hist = model.fit(numpy.array(train_x), numpy.array(train_y), epochs=200, batch_size = 5, verbose = 1)
 model.save('nagonmodel.h5', hist)
-print("Done")
+print("出来ました！")
