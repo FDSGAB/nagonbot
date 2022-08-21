@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-search_term = "木"
+search_term = "意見"
 url = "https://www.weblio.jp/content/" + search_term
 
 
@@ -13,8 +13,6 @@ results = soup.find_all(class_="kijiWrp") #Results é uma lista com todos os art
 
 
 titles = soup.find_all(class_ = "midashigo")
-for titl in titles:
-    print(titl.prettify())
 descriptions = soup.find_all(class_ = "Sgkdj")
 number_list = list()
 for description in descriptions:
@@ -27,11 +25,16 @@ for description in descriptions:
             number_list.append(int(number.text))
         except:
             continue
-print(number_list)
 
-print(len(number_list))
+for n in range(0,len(number_list)):
+    try:
+        if descriptions[n].text:
+            continue
+    except:
+        entries = n
+        break
 
-for i in range (0,len(number_list)):
-    if number_list[i]==1:
-        print(titles[i].text)
-        print(descriptions[i].text)
+for i in range (0,entries):
+    print(titles[i].text + "\n")
+    print(descriptions[i].text + "\n")
+
