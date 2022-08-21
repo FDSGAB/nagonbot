@@ -27,20 +27,11 @@ for description in descriptions:
             number_list.append(int(number.text))
         except:
             continue
-#print(number_list)
+print(number_list)
 
-#print(len(number_list))
+print(len(number_list))
 
 for i in range (0,len(number_list)):
-    try:
-        prt_titl = titles[i]
-        bibi = prt_titl.find("sup")
-        print(bibi.text())
-    except:
-        continue
-
-
-
-
-
-
+    if number_list[i]==1:
+        print(titles[i].text)
+        print(descriptions[i].text)
