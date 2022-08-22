@@ -4,7 +4,7 @@ from .voice import voice_answer
 
 def get_word_dic (engine):
     voice_answer("検索したい言葉を教えてください: ", engine)
-    search_term = input()
+    search_term = input("\n自分:\n")
     url = "https://www.weblio.jp/content/" + search_term
 
 
