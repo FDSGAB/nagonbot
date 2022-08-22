@@ -16,7 +16,7 @@ def get_weather () -> str:
         options = webdriver.ChromeOptions()
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         options.add_argument("headless")
-        driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
+        driver = webdriver.Chrome(options = options, executable_path=ChromeDriverManager().install())
         driver.get("https://www.climatempo.com.br/")
         time.sleep(5)
         soup = BeautifulSoup(driver.page_source, "html.parser")

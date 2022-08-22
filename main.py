@@ -72,7 +72,7 @@ def get_response(kokoro_list, kokoro_json):
             if tag == "辞書":
                 return get_word_dic (engine)
             if tag == "天気":
-                return get_weather() + "\n" + random.choice(i['responses'])
+                return "少々お待ちください。\n" + get_weather() + "\n" + random.choice(i['responses'])
             result = random.choice(i['responses'])
             break
     return result
