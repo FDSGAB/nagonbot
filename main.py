@@ -8,7 +8,7 @@ import fugashi
 import nltk 
 from nltk.corpus import knbc                        #Japanese language import
 from nltk.stem import WordNetLemmatizer
-from renshuu import *                               #Executa o arquivo por completo
+from renshuu import *                               #Executa o arquivo de ML por completo
 from functions import get_time, voice_start, voice_answer, get_word_dic, get_weather
 
 from tensorflow.keras.models import load_model
@@ -72,7 +72,7 @@ def get_response(kokoro_list, kokoro_json):
             if tag == "辞書":
                 return get_word_dic (engine)
             if tag == "天気":
-                return get_weather()
+                return get_weather() + "\n" + random.choice(i['responses'])
             result = random.choice(i['responses'])
             break
     return result
@@ -81,7 +81,7 @@ engine = voice_start()
 
 #Loop principal para o funcionamento do chatbot com opção de desligá-lo　se a tag for de despedida
 while True:
-    message = input("")
+    message = input("\n自分:\n")
     ints = predict_class(message)
     res = get_response(ints, kokoro)
     voice_answer(res,engine)

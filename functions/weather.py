@@ -12,9 +12,10 @@ def get_weather () -> str:
     pega o HTML da página da página procurada,
     fecha o driver.
     """
-    try:
+    try: 
         options = webdriver.ChromeOptions()
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
+        options.add_argument("headless")
         driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
         driver.get("https://www.climatempo.com.br/")
         time.sleep(5)
@@ -24,9 +25,11 @@ def get_weather () -> str:
 
         #Internet scrapping
         results = soup.find("span", id = "current-weather-temperature")
-        
+
+        if results.text == "":
+            return "気温が取れなかったです。すみません。"
         
         return "今、気温は" + results.text + "です"
     except:
-        return "すみません。いまインターネットがなそうです"
+        return "すみません。いまインターネットがなそうです。"
 

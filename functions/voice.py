@@ -9,12 +9,12 @@ def voice_start ():
 
     #Mensagem para avisar que o programa está rodando
     engine.say("わ、起きちゃった")
-    print("わ、起きちゃった")
+    print("\nナゴン:\nわ、起きちゃった")
     engine.runAndWait()
 
     return engine
 
 def voice_answer (res,engine):
     engine.say(res)
-    print(res)
+    print("\nナゴン:\n" + res)
     engine.runAndWait()
