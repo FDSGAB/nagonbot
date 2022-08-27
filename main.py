@@ -78,7 +78,7 @@ def get_response(kokoro_list, kokoro_json):
             break
     return result
 
-koe = voice(2)
+koe = voice()
 
 
 #Loop principal para o funcionamento do chatbot com opção de desligá-lo　se a tag for de despedida
