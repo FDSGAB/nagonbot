@@ -15,12 +15,12 @@ class voice:
         self.engine.runAndWait()
 
 
-
+    #Necessario?
     def __repr__():
         pass
         
 
-
+    #Funcao de resposta do bot
     def voice_answer (self,res):
         self.engine.say(res)
         print("\nナゴン:\n" + res)
