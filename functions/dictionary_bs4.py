@@ -1,16 +1,16 @@
 import requests
 from bs4 import BeautifulSoup
-from .voice import voice_answer
+from .voice import * #voice_answer
 
-def get_word_dic (engine):
-    voice_answer("検索したい言葉を教えてください: ", engine)
+def get_word_dic (voice):
+    voice.voice_answer("検索したい言葉を教えてください: ")
     search_term = input("\n自分:\n")
     url = "https://www.weblio.jp/content/" + search_term
 
 
     page = requests.get(url)
     soup = BeautifulSoup(page.content, "html.parser")
-    results = soup.find_all(class_="kijiWrp") #Results é uma lista com todos os artigos relacionados à palavra do website. Definição, dicionário de kanji etc.
+    #results = soup.find_all(class_="kijiWrp") #Results é uma lista com todos os artigos relacionados à palavra do website. Definição, dicionário de kanji etc.
 
 
 
