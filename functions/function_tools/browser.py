@@ -12,4 +12,4 @@ class browser:
 
 
     def __repr__(self):
-        pass
+        return "Chrome browser that connects to the internet in the background and does not display messages in the console"

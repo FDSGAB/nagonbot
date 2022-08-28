@@ -15,9 +15,8 @@ class voice:
         self.engine.runAndWait()
 
 
-    #Necessario?
-    def __repr__():
-        pass
+    def __repr__(self):
+        return "TTS class that is configurated to use " + self.voices[2].id + " japanese voice as the default voice."
         
 
     #Funcao de resposta do bot

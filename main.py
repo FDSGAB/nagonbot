@@ -8,8 +8,9 @@ import fugashi
 import nltk 
 from nltk.corpus import knbc                        #Japanese language import
 from nltk.stem import WordNetLemmatizer
-from renshuu import *                               #Executa o arquivo de ML por completo
-from functions import * 
+from functions.function_selector import selector
+#from renshuu import *                               #Executa o arquivo de ML por completo
+from functions import *
 
 from tensorflow.keras.models import load_model
 from tensorflow.keras.layers import Dense, Activation, Dropout
@@ -67,16 +68,7 @@ def get_response(kokoro_list, kokoro_json):
     list_of_kokoro = kokoro_json['kokoro']
     for i in list_of_kokoro:
         if i['tag'] == tag:
-            if tag in ["時間" , "日付" , "曜日"]:
-                return get_time(tag)
-            if tag == "辞書":
-                return get_word_dic (koe)
-            if tag == "天気":
-                koe.voice_answer("少々お待ちください。\n")
-                return  get_weather() + "\n" + random.choice(i['responses'])
-            result = random.choice(i['responses'])
-            break
-    return result
+            return selector.select(tag,koe,i)
 
 koe = voice()
 
