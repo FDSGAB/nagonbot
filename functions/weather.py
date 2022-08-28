@@ -28,4 +28,3 @@ def get_weather () -> str:
         return "今、気温は" + results.text + "です"
     except:
         return "すみません。いまインターネットがなそうです。"
-
