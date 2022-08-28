@@ -21,7 +21,6 @@ def get_weather () -> str:
 
         #Internet scrapping
         results = soup.find("span", id = "current-weather-temperature")
-
         if results.text == "":
             return "気温が取れなかったです。すみません。"
         

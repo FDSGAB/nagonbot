@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from .voice import * #voice_answer
+from .voice import * 
 
 def get_word_dic (voice):
     voice.voice_answer("検索したい言葉を教えてください: ")
