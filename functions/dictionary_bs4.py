@@ -10,14 +10,14 @@ def get_word_dic (voice):
 
     page = requests.get(url)
     soup = BeautifulSoup(page.content, "html.parser")
-    #results = soup.find_all(class_="kijiWrp") #Results é uma lista com todos os artigos relacionados à palavra do website. Definição, dicionário de kanji etc.
-
-
 
     titles = soup.find_all(class_ = "midashigo")
     descriptions = soup.find_all(class_ = "Sgkdj")
+
+    n = 0
     number_list = list()
     for description in descriptions:
+        n = n + 1
         numbers = description.find_all("b")
         if not numbers:  #verifica se a lista esta vazia ou nao
             number_list.append(1)
@@ -28,15 +28,9 @@ def get_word_dic (voice):
             except:
                 continue
 
-    for n in range(0,len(number_list)):
-        try:
-            if descriptions[n].text:
-                continue
-        except:
-            entries = n
-            break
+
     try:
-        for i in range (0,entries):
+        for i in range (0,n):
             print(titles[i].text + "\n")
             print(descriptions[i].text + "\n")
     except:

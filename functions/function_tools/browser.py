@@ -1,10 +1,12 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+import logging
 
 
 class browser:
 
     def __init__(self):
+        logging.getLogger('WDM').setLevel(logging.NOTSET)
         options = webdriver.ChromeOptions()
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         options.add_argument("headless")
