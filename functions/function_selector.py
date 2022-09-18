@@ -15,6 +15,8 @@ class selector:
         if tag == "天気":
             koe.voice_answer("少々お待ちください。\n")
             return  get_weather() + "\n" + random.choice(i['responses'])
+        if tag == "何歳":
+            return age()
         return random.choice(i['responses'])
         
 

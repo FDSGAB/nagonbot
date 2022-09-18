@@ -25,3 +25,6 @@ def get_time (n:str) -> str:
         if int(datetime.now().strftime("%w")) == 6:
             str = "今日は土曜日です。"
     return str
+
+def age () -> str:
+    return str((int(datetime.now().strftime("%Y"))-996)) + "歳です"

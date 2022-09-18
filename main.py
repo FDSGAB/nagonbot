@@ -4,11 +4,8 @@ import pickle
 import numpy 
 
 import fugashi
-import nltk 
-from nltk.corpus import knbc                        #Japanese language import
-from nltk.stem import WordNetLemmatizer
 from functions.function_selector import selector
-#from renshuu import *                               #Executa o arquivo de ML por completo
+from renshuu import *                               #Executa o arquivo de ML por completo
 from functions import *
 
 from tensorflow.keras.models import load_model
@@ -32,6 +29,7 @@ kokoro = json.loads(open(file_to_open, encoding="utf8").read()) #Recebe o arquiv
 words = pickle.load(open('words.pkl', 'rb'))
 classes = pickle.load(open('classes.pkl', 'rb'))
 model = load_model('nagonmodel.h5')
+os.system('cls')
 
 
 def clean_up_sentece(sentence):
