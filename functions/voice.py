@@ -1,6 +1,6 @@
 import pyttsx3
 
-class voice:
+class Voice():
    
     #Comandos de texto para voz　(Aqui precisa achar Japones na maquina de destiono, so funciona nessa assim)
     engine = pyttsx3.init()
