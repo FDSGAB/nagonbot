@@ -5,8 +5,8 @@ import numpy
 
 import fugashi
 from functions.function_selector import selector
-from renshuu import *                               #Executa o arquivo de ML por completo
-from functions import *
+#from renshuu import *                               #Executa o arquivo de ML por completo
+from functions import voice
 
 from tensorflow.keras.models import load_model
 from tensorflow.keras.layers import Dense, Activation, Dropout
