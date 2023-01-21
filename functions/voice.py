@@ -24,3 +24,5 @@ class Voice():
         self.engine.say(res)
         print("\nナゴン:\n" + res)
         self.engine.runAndWait()
+
+print(Voice())

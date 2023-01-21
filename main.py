@@ -1,5 +1,5 @@
 import os
-#from renshuu import *                               #Executa o arquivo de ML por completo
+from renshuu import *                               #Executa o arquivo de ML por completo
 from functions.basic_sentence_functions import Sentence
 from functions.voice import Voice
 from kokoro.kokorowoyomu import Json_Reader
