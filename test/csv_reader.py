@@ -2,7 +2,7 @@ import csv
 import json
 from pathlib import Path
 
-data_folder = Path("D:/REP_programas_Python/nagonbot/test/")
+data_folder = Path("./test/")
 file_to_open = data_folder / "speech_patterns.csv"
 
 rows = []

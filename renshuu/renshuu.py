@@ -50,7 +50,7 @@ from tensorflow.keras.optimizers import SGD
 tagger = fugashi.Tagger()
 
 #Aqui eu utilizei essas funções path para pegar o endereço do JSON poder usar na open()
-data_folder = Path("D:/REP_programas_Python/nagonbot/kokoro/")
+data_folder = Path("./kokoro/")
 file_to_open = data_folder / "kokoro.json"
 
 

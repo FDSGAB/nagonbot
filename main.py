@@ -4,8 +4,12 @@ from functions.basic_sentence_functions import Sentence
 from functions.voice import Voice
 from kokoro.kokorowoyomu import Json_Reader
 from model import Model
+import logging
+
 
 #pre-setup
+os.environ['WDM_LOG'] = "false"
+logging.getLogger('WDM').setLevel(logging.NOTSET)
 json_file = Json_Reader()
 model = Model()
 sentence = Sentence()
