@@ -1,1 +1,1 @@
-from .kokorowoyomu import *
+from .json_reader import *

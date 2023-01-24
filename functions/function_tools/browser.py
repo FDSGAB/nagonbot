@@ -4,7 +4,7 @@ import logging
 import os
 
 
-class browser:
+class Browser:
 
     def __init__(self):
         os.environ['WDM_LOG'] = "false" 

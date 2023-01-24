@@ -16,6 +16,7 @@ Em seguida, eles são lidos e armazenados em listas e salvos em .pkl..........
 
 
 #Bibliotecas para manipulação de arquivos
+from database import sql_to_json
 import json
 import pickle
 

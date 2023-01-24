@@ -32,9 +32,9 @@ class Sentence():
         return return_list
 
     #Com base na classe da mensagem prevista, essa função retorna uma resposta adequada
-    def get_response(self,koe,kokoro_list, kokoro_json):
+    def get_response(self,voice,kokoro_list, kokoro_json):
         tag = kokoro_list[0]['koko']               
         list_of_kokoro = kokoro_json['kokoro']
         for i in list_of_kokoro:
             if i['tag'] == tag:
-                return selector.select(tag,koe,i)
+                return selector.select(tag,voice,i)

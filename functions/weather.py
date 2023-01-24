@@ -1,4 +1,4 @@
-from .function_tools import *
+from functions.function_tools import Browser
 from bs4 import BeautifulSoup
 import time
 
@@ -12,7 +12,7 @@ def get_weather () -> str:
     fecha o driver.
     """
     try: 
-        chrome = browser()
+        chrome = Browser()
         chrome.driver.get("https://www.climatempo.com.br/")
         time.sleep(5)
         soup = BeautifulSoup(chrome.driver.page_source, "html.parser")

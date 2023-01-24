@@ -15,19 +15,19 @@ def get_word_dic (voice):
     descriptions = soup.find_all(class_ = "Sgkdj")
 
     try:
-        n = 0
+        number_of_entries = 0
         for description in descriptions:
-            n = n + 1
-        if n == 0:
+            number_of_entries = number_of_entries + 1
+        if number_of_entries == 0:
            descriptions = soup.find_all(class_ = "Jtnhj")
            for description in descriptions:
-                n = n + 1
+                number_of_entries = number_of_entries + 1
     except:
         return search_term +"という言葉は見つかれなかったです"
     
 
     try:
-        for i in range (0,n):
+        for i in range (0, number_of_entries):
             print(titles[i].text + "\n")
             print(descriptions[i].text + "\n")
     except:

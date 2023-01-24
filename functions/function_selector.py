@@ -1,4 +1,6 @@
-from functions import *
+from functions.date_time import *
+from functions.dictionary_bs4 import *
+from functions.weather import *
 import random
 
 
@@ -7,13 +9,13 @@ class selector:
     def __init__(self):
         pass
 
-    def select(tag,koe,i):
+    def select(tag,voice,i):
         if tag in ["時間" , "日付" , "曜日"]:
                 return get_time(tag)
         if tag == "辞書":
-            return get_word_dic(koe)
+            return get_word_dic(voice)
         if tag == "天気":
-            koe.voice_answer("少々お待ちください。\n")
+            voice.voice_answer("少々お待ちください。\n")
             return  get_weather() + "\n" + random.choice(i['responses'])
         if tag == "何歳":
             return age()

@@ -11,7 +11,7 @@ connection.close()
 tag_list = []
 
 for row in records:
-    tag_list.append(row[2])
+    tag_list.append(row[1])
 
 unique_tags = set(tag_list)
 
@@ -21,11 +21,11 @@ for subject in unique_tags:
     pattern_list = []
     response_list = []
     for row in records:
-        if row[2] == subject:
-            if row[3] == 'pattern':
-                pattern_list.append(row[4])
-            if row[3] == 'response':
-                response_list.append(row[4])
+        if row[1] == subject:
+            if row[2] == 'pattern':
+                pattern_list.append(row[3])
+            if row[2] == 'response':
+                response_list.append(row[3])
     json_entry = {"tag": subject, "patterns" : pattern_list, "responses" :response_list}
     list_for_json.append(json_entry)
 
@@ -33,3 +33,5 @@ json_dict = {"kokoro" : list_for_json}
 
 with open("./kokoro/kokoro.json", mode = "w", encoding = "utf8") as outfile:
     json.dump(json_dict, outfile, ensure_ascii=False, indent=2)
+
+print("心が更新いたしました！！")

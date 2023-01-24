@@ -20,7 +20,7 @@ class Voice():
         
 
     #Funcao de resposta do bot
-    def voice_answer (self,res):
-        self.engine.say(res)
-        print("\nナゴン:\n" + res)
+    def voice_answer (self, answer: str):
+        self.engine.say(answer)
+        print("\nナゴン:\n" + answer)
         self.engine.runAndWait()
