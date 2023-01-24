@@ -17,7 +17,6 @@ Em seguida, eles são lidos e armazenados em listas e salvos em .pkl..........
 
 #Bibliotecas para manipulação de arquivos
 import json
-from pathlib import Path
 import pickle
 
 #Bibliotecas matemáticas
@@ -35,10 +34,6 @@ from tensorflow.keras.optimizers import SGD
 
 
 
-
-
-
-
 """
 
 ----------------------Coleta dos padrões de pergunta e resposta do arquivo JSON-------------------------------
@@ -49,13 +44,8 @@ from tensorflow.keras.optimizers import SGD
 #Vai ser utilizado para separas as palavras em japonês nos padrões
 tagger = fugashi.Tagger()
 
-#Aqui eu utilizei essas funções path para pegar o endereço do JSON poder usar na open()
-data_folder = Path("./kokoro/")
-file_to_open = data_folder / "kokoro.json"
-
-
 #Abre o arquivo JSON, o enconding="utf8" é necessário por conta dos caracteres japoneses
-kokoro = json.loads(open(file_to_open, encoding="utf8").read()) #Recebe o arquivo em JSON como, essencialmente, um dicionário em Python
+kokoro = json.loads(open("./kokoro/kokoro.json", encoding="utf8").read()) #Recebe o arquivo em JSON como, essencialmente, um dicionário em Python
 
 
 #Cria as listas de controle 
@@ -79,9 +69,6 @@ for koko in kokoro['kokoro']:
 
 
 
-
-
-
 """
 
 
@@ -97,11 +84,8 @@ words = sorted(set(words))                                          #remove entr
 
 #print("\n\n WORDS:\n",words) print de todas as palavras
 
-pickle.dump(words, open('words.pkl', 'wb'))
-pickle.dump(classes, open('classes.pkl', 'wb'))
-
-
-
+pickle.dump(words, open('./model/words.pkl', 'wb'))
+pickle.dump(classes, open('./model/classes.pkl', 'wb'))
 
 
 
@@ -136,11 +120,6 @@ train_y = list(training[:, 1])
 
 
 
-
-
-
-
-
 """
 
 
@@ -161,5 +140,5 @@ sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
 hist = model.fit(numpy.array(train_x), numpy.array(train_y), epochs=200, batch_size = 5, verbose = 1)
-model.save('nagonmodel.h5', hist)
+model.save('./model/nagonmodel.h5', hist)
 print("出来ました！")

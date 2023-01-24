@@ -9,6 +9,6 @@ class Model():
     model = None
 
     def __init__(self) -> None:
-        self.words = pickle.load(open('words.pkl', 'rb'))
-        self.classes = pickle.load(open('classes.pkl', 'rb'))
-        self.model = load_model('nagonmodel.h5')
+        self.words = pickle.load(open('./model/words.pkl', 'rb'))
+        self.classes = pickle.load(open('./model/classes.pkl', 'rb'))
+        self.model = load_model('./model/nagonmodel.h5')

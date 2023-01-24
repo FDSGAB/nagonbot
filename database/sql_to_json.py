@@ -1,36 +1,26 @@
-import csv
+import sqlite3
 import json
-from pathlib import Path
 
-data_folder = Path("./test/")
-file_to_open = data_folder / "speech_patterns.csv"
-
-rows = []
-fields = []
-
-with open(file_to_open, mode = 'r', encoding = "utf8") as csv_file:
-
-    csv_reader = csv.reader(csv_file)
-
-    fields = next(csv_reader)
-
-    for row in csv_reader:
-        rows.append(row)
+connection = sqlite3.connect('./database/speech.db')
+connection_cursor = connection.cursor()
+connection_cursor.execute('SELECT * FROM speech_patterns')
+records = connection_cursor.fetchall()
+connection_cursor.close()
+connection.close()
 
 tag_list = []
 
-for row in rows:
+for row in records:
     tag_list.append(row[2])
 
 unique_tags = set(tag_list)
-
 
 list_for_json = []
 
 for subject in unique_tags:
     pattern_list = []
     response_list = []
-    for row in rows:
+    for row in records:
         if row[2] == subject:
             if row[3] == 'pattern':
                 pattern_list.append(row[4])
@@ -41,8 +31,5 @@ for subject in unique_tags:
 
 json_dict = {"kokoro" : list_for_json}
 
-with open("kokoro_test.json", mode = "w", encoding = "utf8") as outfile:
+with open("./kokoro/kokoro.json", mode = "w", encoding = "utf8") as outfile:
     json.dump(json_dict, outfile, ensure_ascii=False, indent=2)
-
-print(json_dict)
-
