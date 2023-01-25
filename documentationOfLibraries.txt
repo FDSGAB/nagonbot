@@ -1,0 +1,5 @@
+conda install ffmpeg #needed for pydub
+tensorflow
+random
+numpy
+pygame

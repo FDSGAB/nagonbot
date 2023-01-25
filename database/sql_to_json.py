@@ -1,7 +1,7 @@
 import sqlite3
 import json
 
-connection = sqlite3.connect('./database/speech.db')
+connection = sqlite3.connect('./database/database.db')
 connection_cursor = connection.cursor()
 connection_cursor.execute('SELECT * FROM speech_patterns')
 records = connection_cursor.fetchall()
