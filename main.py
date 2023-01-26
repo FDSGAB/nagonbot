@@ -24,7 +24,7 @@ def main():
     while True:
         if bgm_is_playing == False:
             BGM().play_song(bgm_switch)
-            if bgm_switch:
+            if bgm_switch == True:
                 bgm_is_playing = True
         message = input("\n自分:\n")
         ints = sentence.predict_class(message, model.model, model.classes, json_file.tagger, model.words)
@@ -33,10 +33,10 @@ def main():
         if ints[0]['koko']  in ["さようなら" , "寝るさようなら"]:
             break
         if ints[0]['koko'] == "BGM_ON":
-            if not bgm_switch:
+            if bgm_switch == False:
                 bgm_switch = True
         if ints[0]['koko'] == "BGM_OFF":
-            if bgm_switch:
+            if bgm_switch == True:
                 bgm_switch = False
                 if bgm_is_playing:
                     bgm_is_playing = False
