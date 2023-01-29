@@ -27,7 +27,7 @@ class BGM():
             pygame.mixer.init(44100,-16,2,512)
             sound = pygame.mixer.Sound(self.current_song)
             sound.set_volume(0.034)
-            sound.play()
+            sound.play(loops=-1)
         else:
             pygame.init()
             pygame.mixer.init(44100,-16,2,512)

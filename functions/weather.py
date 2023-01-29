@@ -1,16 +1,15 @@
 from functions.function_tools import Browser
 from bs4 import BeautifulSoup
 import time
+import os
+import logging
 
 
 def get_weather () -> str:
-    """
-    Abre o driver do Chromium (instala se for necessário), 
-    passa o URL pra ele, 
-    delay para a página carregar,
-    pega o HTML da página da página procurada,
-    fecha o driver.
-    """
+
+    os.environ['WDM_LOG'] = "false"
+    logging.getLogger('WDM').setLevel(logging.NOTSET)
+    
     try: 
         chrome = Browser()
         chrome.driver.get("https://www.climatempo.com.br/")
@@ -20,10 +19,28 @@ def get_weather () -> str:
 
 
         #Internet scrapping
-        results = soup.find("span", id = "current-weather-temperature")
-        if results.text == "":
+        temperature = soup.find("span", id = "current-weather-temperature")
+        condition = soup.find("span", id = "current-weather-condition")
+        condition_text = translate_weather_condition(condition.text)
+        if condition_text == "":
+            condition_text = "わからないんです"
+        if temperature.text == "":
             return "気温が取れなかったです。すみません。"
         
-        return "今、気温は" + results.text + "です"
+        return "今、気温は" + temperature.text + "です\n天気が" + condition_text
     except:
-        return "すみません。いまインターネットがなそうです。"
+        return "すみません。いまインターネットはなさそうです。"
+    
+
+def translate_weather_condition(current_condition : str) -> str:
+    
+    condition_dictionary = {
+                            'Chuva fraca':'弱い雨が降っています',
+                            'Nuvens esparsas': '少し曇っています',
+                            'Muitas nuvens' : 'すごく曇っています'
+                            }
+    try:
+        result = condition_dictionary[current_condition]
+    except:
+        result = ""
+    return result

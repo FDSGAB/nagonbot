@@ -16,7 +16,7 @@ class selector:
             return get_word_dic(voice)
         if tag == "天気":
             voice.voice_answer("少々お待ちください。\n")
-            return  get_weather() + "\n" + random.choice(i['responses'])
+            return  get_weather() #+ "\n" + random.choice(i['responses'])
         if tag == "何歳":
             return age()
         return random.choice(i['responses'])
