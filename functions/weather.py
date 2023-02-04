@@ -27,7 +27,7 @@ def get_weather () -> str:
         if temperature.text == "":
             return "気温が取れなかったです。すみません。"
         
-        return "今、気温は" + temperature.text + "です\n天気が" + condition_text
+        return "今、気温は" + temperature.text + "です\n天気が" + condition_text + "です。"
     except:
         return "すみません。いまインターネットはなさそうです。"
     
@@ -37,7 +37,9 @@ def translate_weather_condition(current_condition : str) -> str:
     condition_dictionary = {
                             'Chuva fraca':'弱い雨が降っています',
                             'Nuvens esparsas': '少し曇っています',
-                            'Muitas nuvens' : 'すごく曇っています'
+                            'Muitas nuvens' : 'すごく曇っています',
+                            'Pancada de chuva':'降雨',
+                            'Trovoada':'雷雨'
                             }
     try:
         result = condition_dictionary[current_condition]

@@ -18,7 +18,6 @@ class Sentence():
         return numpy.array(bag)
 
 
-    #Função que tenta acertar a classe da mensagem enviada
     def predict_class(self, sentence, model, classes, tagger, words):
         bow = self.bag_of_words(sentence, words,tagger)
         res = model.predict(numpy.array([bow]))[0]
@@ -31,10 +30,10 @@ class Sentence():
             return_list.append({'koko': classes[r[0]], 'probability': str(r[1])})
         return return_list
 
-    #Com base na classe da mensagem prevista, essa função retorna uma resposta adequada
+
     def get_response(self,voice,kokoro_list, kokoro_json):
         tag = kokoro_list[0]['koko']               
         list_of_kokoro = kokoro_json['kokoro']
         for i in list_of_kokoro:
             if i['tag'] == tag:
-                return selector.select(tag,voice,i)
+                return Selector.select(tag,voice,i)

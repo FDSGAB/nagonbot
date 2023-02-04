@@ -4,7 +4,7 @@ from functions.weather import *
 import random
 
 
-class selector:
+class Selector:
 
     def __init__(self):
         pass
