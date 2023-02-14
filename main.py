@@ -1,7 +1,7 @@
 import os
 #from training import *
-from functions.basic_sentence_functions import Sentence
-from functions.voice import Voice
+from tools.basic_sentence_functions import Sentence
+from tools.voice import Voice
 from kokoro.json_reader import Json_Reader
 from model import Model
 import logging

@@ -1,4 +1,4 @@
-from functions.function_tools import Browser
+from tools.function_tools import Browser
 from bs4 import BeautifulSoup
 import time
 import os

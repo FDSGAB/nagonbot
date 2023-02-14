@@ -1,5 +1,5 @@
 import numpy 
-from functions import *
+from tools import *
 
 
 class Sentence():

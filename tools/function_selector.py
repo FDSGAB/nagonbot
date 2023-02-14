@@ -1,6 +1,6 @@
-from functions.date_time import *
-from functions.dictionary_bs4 import *
-from functions.weather import *
+from tools.date_time import *
+from tools.dictionary_bs4 import *
+from tools.weather import *
 import random
 
 
