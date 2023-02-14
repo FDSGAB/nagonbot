@@ -2,8 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 from .voice import * 
 
-def get_word_dic (voice: Voice) -> str:
-    voice.voice_answer("検索したい言葉を教えてください: ")
+def get_word_dic () -> str:
+    Voice().voice_answer("検索したい言葉を教えてください: ")
     search_term = input("\n自分:\n")
     url = "https://www.weblio.jp/content/" + search_term
 

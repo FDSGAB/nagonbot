@@ -31,9 +31,9 @@ class Sentence():
         return return_list
 
 
-    def get_response(self,voice,kokoro_list, kokoro_json):
+    def get_response(self,kokoro_list, kokoro_json):
         tag = kokoro_list[0]['koko']               
         list_of_kokoro = kokoro_json['kokoro']
         for i in list_of_kokoro:
             if i['tag'] == tag:
-                return Selector.select(tag,voice,i)
+                return Selector.select(tag,i)

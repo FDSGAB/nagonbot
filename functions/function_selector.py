@@ -9,14 +9,14 @@ class Selector:
     def __init__(self):
         pass
 
-    def select(tag,voice,i):
+    def select(tag,i):
         if tag in ["時間" , "日付" , "曜日"]:
                 return get_time(tag)
         if tag == "辞書":
-            return get_word_dic(voice)
+            return get_word_dic()
         if tag == "天気":
-            voice.voice_answer("少々お待ちください。\n")
-            return  get_weather() #+ "\n" + random.choice(i['responses'])
+            Voice().voice_answer("少々お待ちください。\n")
+            return  get_weather()
         if tag == "何歳":
             return age()
         return random.choice(i['responses'])

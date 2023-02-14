@@ -19,10 +19,10 @@ class Main():
         model = Model()
         sentence = Sentence()
         os.system('cls')
-        voice = Voice()
-        return self.main(json_file,model,sentence,voice)
+        Voice().start2()
+        return self.main(json_file,model,sentence)
 
-    def main(self,json_file,model,sentence,voice):        
+    def main(self,json_file,model,sentence):        
         while True:
             if self.bgm_is_playing == False:
                 BGM().play_song(self.bgm_switch)
@@ -30,8 +30,8 @@ class Main():
                     self.bgm_is_playing = True
             message = input("\n自分:\n")
             ints = sentence.predict_class(message, model.model, model.classes, json_file.tagger, model.words)
-            response = sentence.get_response(voice, ints, json_file.kokoro)
-            voice.voice_answer(response)
+            response = sentence.get_response(ints, json_file.kokoro)
+            Voice().voice_answer(response)
             if ints[0]['koko']  in ["さようなら" , "寝るさようなら"]:
                 break
             if ints[0]['koko'] == "BGM_ON":

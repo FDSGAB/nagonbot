@@ -1,26 +1,22 @@
-import pyttsx3
+from gtts import gTTS
+import os
+from playsound import playsound
 
 class Voice():
-   
-    #Comandos de texto para voz　(Aqui precisa achar Japones na maquina de destiono, so funciona nessa assim)
-    engine = pyttsx3.init()
-    voices = engine.getProperty('voices')
-    engine.setProperty("voice", voices[2].id)
-    engine.setProperty("rate", 135)
-
-    def __init__(self):
-        #Mensagem para avisar que o programa está rodando
-        self.engine.say("わ、起きちゃった")
-        print("\nナゴン:\nわ、起きちゃった")
-        self.engine.runAndWait()
-
 
     def __repr__(self):
-        return "TTS class that is configurated to use " + self.voices[2].id + " japanese voice as the default voice."
-        
+        return "TTS class that is configurated to use google translate's japanese voice as the default voice."
 
-    #Funcao de resposta do bot
-    def voice_answer (self, answer: str):
-        self.engine.say(answer)
+    def start2(self):
+        print("\nナゴン:\nわ、起きちゃった")
+        self.say("わ、起きちゃった")
+
+    def say(self, message):
+        my_aud = gTTS(text = message, lang = 'ja') #converts the text into speech
+        my_aud.save('./temp/demo.mp3') #save the file with .mp3 extension
+        playsound('./temp/demo.mp3') #to play it
+        os.remove('./temp/demo.mp3')
+
+    def voice_answer(self, answer: str):
         print("\nナゴン:\n" + answer)
-        self.engine.runAndWait()
+        self.say(answer)

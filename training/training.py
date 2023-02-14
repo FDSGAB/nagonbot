@@ -53,7 +53,7 @@ kokoro = json.loads(open("./kokoro/kokoro.json", encoding="utf8").read()) #Receb
 words = []                                               #Palavras que serão utilizadas
 classes = []                                             #Classes que serão utilizadas
 documents = []                                           #Combinações 'pertences'
-ignore_letters = ['。', '、', '！', '？', '「', '」']     #Caracteres que serão ignorados
+ignore_letters = ['。', '、', '！', '？', '「', '」','～']     #Caracteres que serão ignorados
 
 
 
@@ -83,13 +83,13 @@ classes = sorted(set(classes))                                      #remove entr
 words = [word for word in words if word not in ignore_letters]      #retira os caracteres ignorados
 words = sorted(set(words))                                          #remove entradas duplicadas
 
-#print("\n\n WORDS:\n",words) print de todas as palavras
+#print("\n\n Words:\n",words)
 
 pickle.dump(words, open('./model/words.pkl', 'wb'))
 pickle.dump(classes, open('./model/classes.pkl', 'wb'))
 
 
-
+#print("\n\n Classes:\n",classes)
 
 """
 
