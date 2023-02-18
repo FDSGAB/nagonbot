@@ -1,11 +1,11 @@
 import os
-#from training import *
-from tools.basic_sentence_functions import Sentence
-from tools.voice import Voice
-from kokoro.json_reader import Json_Reader
-from model import Model
+from bin.training import *
+from bin.tools.basic_sentence_functions import Sentence
+from bin.tools.voice import Voice
+from bin.kokoro.json_reader import Json_Reader
+from bin.model import Model
 import logging
-from sound import BGM
+from bin.sound import BGM
 
 class Main():
 
@@ -29,8 +29,8 @@ class Main():
                 if self.bgm_switch == True:
                     self.bgm_is_playing = True
             message = input("\n自分:\n")
-            ints = sentence.predict_class(message, model.model, model.classes, json_file.tagger, model.words)
-            response = sentence.get_response(ints, json_file.kokoro)
+            ints = Sentence().predict_class(message, model.model, model.classes, json_file.tagger, model.words)
+            response = Sentence().get_response(ints, json_file.kokoro)
             Voice().voice_answer(response)
             if ints[0]['koko']  in ["さようなら" , "寝るさようなら"]:
                 break

@@ -1,0 +1,16 @@
+tensorflow
+random
+numpy
+pygame
+playsound
+os
+logging
+pickle
+fugashi
+json
+sqlite3
+datetime
+requests
+bs4
+gtts
+time
