@@ -4,7 +4,7 @@ from bin.tools import *
 
 class Sentence():
 
-    def clean_up_sentece(self, tagger,sentence):
+    def clean_up_sentece(self, tagger, sentence):
         sentence_words = [word.surface for word in tagger(sentence)]
         return sentence_words
 
@@ -19,12 +19,12 @@ class Sentence():
 
 
     def predict_class(self, sentence, model, classes, tagger, words):
-        bow = self.bag_of_words(sentence, words,tagger)
+        bow = self.bag_of_words(sentence, words, tagger)
         res = model.predict(numpy.array([bow]))[0]
         ERROR_THRESHOLD = 0.25
-        results = [[i,r] for i, r in enumerate(res) if r > 0.1]      
+        results = [[i, r] for i, r in enumerate(res) if r > 0.1]      
 
-        results.sort(key=lambda x: x[1], reverse=True)
+        results.sort(key = lambda x: x[1], reverse = True)
         return_list = []
         for r in results:
             if r[1] < 0.5:
@@ -34,9 +34,9 @@ class Sentence():
         return return_list
 
 
-    def get_response(self,kokoro_list, kokoro_json):
+    def get_response(self, kokoro_list, kokoro_json):
         tag = kokoro_list[0]['koko']               
         list_of_kokoro = kokoro_json['kokoro']
         for i in list_of_kokoro:
             if i['tag'] == tag:
-                return Selector.select(tag,i)
+                return Selector().select(tag, i)

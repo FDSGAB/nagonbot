@@ -15,13 +15,10 @@ def get_word_dic () -> str:
     descriptions = soup.find_all(class_ = "Sgkdj")
 
     try:
-        number_of_entries = 0
-        for description in descriptions:
-            number_of_entries = number_of_entries + 1
+        number_of_entries = len(descriptions)
         if number_of_entries == 0:
            descriptions = soup.find_all(class_ = "Jtnhj")
-           for description in descriptions:
-                number_of_entries = number_of_entries + 1
+           number_of_entries = len(descriptions)
         if number_of_entries == 0:
             return search_term +"という言葉は見つかれなかったです"    
     except:

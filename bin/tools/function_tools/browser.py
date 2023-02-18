@@ -13,7 +13,7 @@ class Browser:
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         options.add_argument("headless")
         #options.add_experimental_option('detach', True)
-        self.driver = webdriver.Chrome(options = options, executable_path=ChromeDriverManager().install())
+        self.driver = webdriver.Chrome(options = options, executable_path = ChromeDriverManager().install())
 
 
     def __repr__(self):

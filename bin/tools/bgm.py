@@ -1,20 +1,22 @@
 import random
 import pygame
+import os
 
 class BGM():
 
-    bgm_list = ["./bin/sound/monstruo.wav", "./bin/sound/new_spring.wav", "./bin/sound/お雑煮の香り.wav", "./bin/sound/竜宮城.wav", "./bin/sound/低音忠実性.wav"]
-    current_song = "./bin/sound/お雑煮の香り.wav"
+    sound_directory = "./bin/sound/"
+    bgm_list = []
+    current_song = "./bin/sound/monstruo.wav"
     bgm_switch = False
 
-    def start(self):
-        self.pick_song()
+    def __init__(self):
+        self.bgm_list = os.listdir('./bin/sound')
     
     def pick_song(self):
-        picked_random_number = random.randint(0,len(self.bgm_list)-1)
+        picked_random_number = random.randint(0, len(self.bgm_list)-1)
         song_name = self.bgm_list[picked_random_number]
-        print("\n曲:", song_name[8:len(song_name)-4])
-        self.current_song = self.bgm_list[picked_random_number]
+        print("\n曲:", song_name)
+        self.current_song = self.sound_directory + self.bgm_list[picked_random_number]
 
 
     def play_song(self, switch: bool):
@@ -37,7 +39,7 @@ class BGM():
 
 
 if __name__ == "__main__":
-    bgm_switch = False
+    """ bgm_switch = False
 
     while True:
         BGM().play_song(bgm_switch)
@@ -46,7 +48,8 @@ if __name__ == "__main__":
             bgm_switch = True
         else:
             bgm_switch = False
-    
+     """
+    print(os.listdir('./bin/sound'))
 
 
 

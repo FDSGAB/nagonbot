@@ -8,7 +8,7 @@ from bin.model import Model
 import logging
 
 
-class Main():
+class TestMain():
 
     bgm_switch = False
     bgm_is_playing = False
@@ -44,4 +44,4 @@ class Main():
                         self.bgm_is_playing = False
 
 if __name__ == '__main__':
-    Main()
+    TestMain()

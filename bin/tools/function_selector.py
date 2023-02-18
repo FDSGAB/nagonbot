@@ -1,6 +1,6 @@
-from bin.tools.date_time import *
-from bin.tools.dictionary_bs4 import *
-from bin.tools.weather import *
+from .date_time import *
+from .dictionary_bs4 import *
+from .weather import *
 import random
 
 
@@ -9,7 +9,7 @@ class Selector():
     def __init__(self):
         pass
 
-    def select(tag,i):
+    def select(self, tag, i):
         if tag in ["時間" , "日付" , "曜日"]:
                 return get_time(tag)
         if tag == "辞書":

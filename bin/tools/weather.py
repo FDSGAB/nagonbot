@@ -40,7 +40,9 @@ def translate_weather_condition(current_condition : str) -> str:
                             'Muitas nuvens' : 'すごく曇っています',
                             'Pancada de chuva':'降雨です',
                             'Trovoada':'雷雨です',
-                            'Alguma nebulosidade' : 'なかなか曇っています'
+                            'Alguma nebulosidade' : 'なかなか曇っています',
+                            'Chuva' : '雨です',
+                            'Céu encoberto' : '曇っています'
                             }
     try:
         result = condition_dictionary[current_condition]

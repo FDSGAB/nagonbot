@@ -1,7 +1,7 @@
 from datetime import datetime
 
 #Funções relacionadas a datas e tempo (retiradas do sistema)
-def get_time (tag:str) -> str:
+def get_time (tag : str) -> str:
     if tag == "時間":
         str = "今は" + datetime.now().strftime("%H:%M") + "です。"
     if tag == "日付": 
