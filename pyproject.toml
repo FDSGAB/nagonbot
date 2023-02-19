@@ -1,0 +1,67 @@
+[nagonbot]
+
+name = "nagonbot"
+
+version = "0.1"  # Required
+
+description = "Japanese Chatbot"
+
+readme = "README.md"
+
+requires-python = ">=3.8.8"
+
+license = {file = "LICENSE.md"}
+
+keywords = ["nagon", "japanese", "chatbot"]
+
+authors = [
+  {name = "Gabriel Fioravante Di Sciascio"}
+]
+
+maintainers = [
+  {name = "Gabriel Fioravante Di Sciascio"}
+]
+
+classifiers = [  
+  "Development Status :: 3 - Alpha",
+
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Chatbot",
+
+  "License :: MIT License",
+
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3 :: Only",
+]
+
+dependencies = [
+  "tensorflow",
+  "random",
+  "numpy",
+  "pygame",
+  "playsound",
+  "os",
+  "logging",
+  "pickle",
+  "fugashi",
+  "json",
+  "sqlite3",
+  "datetime",
+  "requests",
+  "bs4",
+  "gtts",
+  "time"
+]
+
+
+"Homepage" = "https://github.com/FDSGAB/NagonBot.py"
+
+
+[tool.setuptools]
+[build-system]
+requires = ["setuptools>=43.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+Footer
