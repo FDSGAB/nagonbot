@@ -16,7 +16,7 @@ Em seguida, eles são lidos e armazenados em listas e salvos em .pkl..........
 
 
 #Bibliotecas para manipulação de arquivos
-from bin.database import sql_to_json
+#from src.nagonbot.bin.database import sql_to_json
 import json
 import pickle
 
@@ -137,7 +137,8 @@ model.add(Dropout(0.5))
 model.add(Dense(len(train_y[0]), activation='softmax'))
 
 
-sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
+#sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
+sgd = SGD(lr=0.01, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
 hist = model.fit(numpy.array(train_x), numpy.array(train_y), epochs=200, batch_size = 5, verbose = 1)
