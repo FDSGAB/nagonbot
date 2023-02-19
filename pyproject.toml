@@ -1,80 +1,37 @@
-[nagonbot]
-
+[tool.poetry]
 name = "nagonbot"
-
-version = "0.0.1"
-
-description = "Japanese Chatbot"
-
+version = "0.1.0"
+description = ""
+authors = ["Gabriel Fioravante Di Sciascio"]
 readme = "README.md"
 
-requires-python = ">=3.8.8"
+[tool.poetry.dependencies]
+python = "^3.11"
+tensorflow = "^2.11.0"
+numpy = "^1.24.2"
+fugashi = "^1.2.1"
+unidic-lite = "^1.0.8"
+mecab-python3 = "^1.0.6"
+selenium = "^4.8.2"
+webdriver-manager = "^3.8.5"
+pygame = "^2.1.3"
+playsound = "1.2.2"
+bs4 = "^0.0.1"
+gTTS = "^2.3.1"
 
-license = {file = "LICENSE.md"}
+[tool.poetry.group.dev.dependencies]
+bs4 = "^0.0.1"
+tensorflow = "^2.11.0"
+numpy = "^1.24.2"
+pygame = "^2.1.3"
+playsound = "1.2.2"
+fugashi = "^1.2.1"
+gTTS = "^2.3.1"
+unidic-lite = "^1.0.8"
+mecab-python3 = "^1.0.6"
+selenium = "^4.8.2"
+webdriver-manager = "^3.8.5"
 
-keywords = ["nagon", "japanese", "chatbot"]
-
-authors = [
-  {name = "Gabriel Fioravante Di Sciascio"}
-]
-
-maintainers = [
-  {name = "Gabriel Fioravante Di Sciascio"}
-]
-
-classifiers = [  
-  "Development Status :: 3 - Alpha",
-
-  "Intended Audience :: Developers",
-  "Topic :: Software Development :: Chatbot",
-
-  "License :: MIT License",
-
-  "Programming Language :: Python :: 3.8",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3 :: Only",
-]
-
-dependencies = [
-  "tensorflow",
-  "random",
-  "numpy",
-  "pygame",
-  "playsound==1.2.2",
-  "os",
-  "logging",
-  "pickle",
-  "fugashi",
-  "json",
-  "sqlite3",
-  "datetime",
-  "requests",
-  "bs4",
-  "gtts",
-  "time",
-  "selenium",
-  "webdriver_manager"
-]
-
-
-"Homepage" = "https://github.com/FDSGAB/NagonBot.py"
-
-
-[tool.setuptools]
 [build-system]
-requires = [
-  "setuptools>=43.0.0", 
-  "wheel",
-  "tensorflow",
-  "numpy",
-  "pygame",
-  "playsound==1.2.2",
-  "fugashi",
-  "bs4",
-  "gtts",
-  "selenium",
-  "webdriver_manager"
-]
-build-backend = "setuptools.build_meta"
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
