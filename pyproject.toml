@@ -2,7 +2,7 @@
 
 name = "nagonbot"
 
-version = "0.1"  # Required
+version = "0.0.1"
 
 description = "Japanese Chatbot"
 
@@ -42,7 +42,7 @@ dependencies = [
   "random",
   "numpy",
   "pygame",
-  "playsound",
+  "playsound==1.2.2",
   "os",
   "logging",
   "pickle",
@@ -53,7 +53,9 @@ dependencies = [
   "requests",
   "bs4",
   "gtts",
-  "time"
+  "time",
+  "selenium",
+  "webdriver_manager"
 ]
 
 
@@ -62,5 +64,17 @@ dependencies = [
 
 [tool.setuptools]
 [build-system]
-requires = ["setuptools>=43.0.0", "wheel"]
+requires = [
+  "setuptools>=43.0.0", 
+  "wheel",
+  "tensorflow",
+  "numpy",
+  "pygame",
+  "playsound==1.2.2",
+  "fugashi",
+  "bs4",
+  "gtts",
+  "selenium",
+  "webdriver_manager"
+]
 build-backend = "setuptools.build_meta"

@@ -2,13 +2,13 @@ from pathlib import Path
 
 class FileChecker():
 
-    json_file = Path('./kokoro/kokoro.json')
-    database = Path('./database/database.db')
-    training_program = Path('./training/training.py')
-    main_program = Path('main.py')
-    model = Path('./model/nagonmodel.h5')
-    words_pickle = Path('./model/words.pkl')
-    classes_pickle = Path('./model/classes.pkl')
+    json_file = Path('./src/nagonbot/bin/data/kokoro.json')
+    database = Path('./src/nagonbot/bin/data/database.db')
+    training_program = Path('./src/nagonbot/bin/training/training.py')
+    main_program = Path('./src/nagonbot/nagonbot.py')
+    model = Path('./src/nagonbot/bin/data/model/nagonmodel.h5')
+    words_pickle = Path('./src/nagonbot/bin/data/model/words.pkl')
+    classes_pickle = Path('./src/nagonbot/bin/data/model/classes.pkl')
 
     def check_json(self) -> bool:
         return self.json_file.is_file()

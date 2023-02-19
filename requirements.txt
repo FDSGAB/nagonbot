@@ -2,7 +2,7 @@ tensorflow
 random
 numpy
 pygame
-playsound
+playsound==1.2.2
 os
 logging
 pickle
@@ -16,3 +16,5 @@ gtts
 time
 unidic-lite
 mecab-python3
+selenium
+webdriver_manager
