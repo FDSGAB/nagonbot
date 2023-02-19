@@ -26,6 +26,7 @@ def get_word_dic () -> str:
     
 
     try:
+        print("\n\n辞典:\n")
         for i in range (0, number_of_entries):
             print(titles[i].text + "\n")
             print(descriptions[i].text + "\n")

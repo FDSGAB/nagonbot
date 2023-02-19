@@ -4,13 +4,13 @@ import os
 
 class BGM():
 
-    sound_directory = "./src/nagonbot/bin/sound/"
+    sound_directory = "./src/nagonbot/bin/data/sound/"
     bgm_list = []
-    current_song = "./src/nagonbot/bin/sound/monstruo.wav"
+    current_song = "./src/nagonbot/bin/data/sound/monstruo.wav"
     bgm_switch = False
 
     def __init__(self):
-        self.bgm_list = os.listdir('./src/nagonbot/bin/sound')
+        self.bgm_list = os.listdir('./src/nagonbot/bin/data/sound')
     
     def pick_song(self):
         picked_random_number = random.randint(0, len(self.bgm_list)-1)
@@ -49,7 +49,7 @@ if __name__ == "__main__":
         else:
             bgm_switch = False
      """
-    print(os.listdir('./src/nagonbot/bin/sound'))
+    print(os.listdir('./src/nagonbot/bin/data/sound'))
 
 
 

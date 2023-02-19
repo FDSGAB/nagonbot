@@ -3,11 +3,9 @@ from bin.training import *
 from bin.tools.basic_sentence_functions import Sentence
 from bin.tools.voice import Voice
 from bin.tools.bgm import BGM
-from bin.kokoro.json_reader import Json_Reader
-from bin.model.model import Model
+from bin.training.json_reader import Json_Reader
+from bin.training.model import Model
 import logging
-
-#python .\src\nagonbot\nagonbot.py tensorflow 2.7.0
 
 
 class Main():

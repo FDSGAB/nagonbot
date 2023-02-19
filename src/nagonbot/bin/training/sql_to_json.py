@@ -1,7 +1,7 @@
 import sqlite3
 import json
 
-connection = sqlite3.connect('./src/nagonbot/bin/database/database.db')
+connection = sqlite3.connect('./src/nagonbot/bin/data/database.db')
 connection_cursor = connection.cursor()
 connection_cursor.execute('SELECT * FROM speech_patterns')
 records = connection_cursor.fetchall()
@@ -31,7 +31,7 @@ for subject in unique_tags:
 
 json_dict = {"kokoro" : list_for_json}
 
-with open("./src/nagonbot/bin/kokoro/kokoro.json", mode = "w", encoding = "utf8") as outfile:
+with open("./src/nagonbot/bin/data/kokoro.json", mode = "w", encoding = "utf8") as outfile:
     json.dump(json_dict, outfile, ensure_ascii=False, indent=2)
 
 print("心が更新いたしました！！")
