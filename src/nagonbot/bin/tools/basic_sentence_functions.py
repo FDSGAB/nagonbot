@@ -20,7 +20,7 @@ class Sentence():
 
     def predict_class(self, sentence, model, classes, tagger, words):
         bow = self.bag_of_words(sentence, words, tagger)
-        res = model.predict(numpy.array([bow]))[0]
+        res = model.predict(numpy.array([bow]), verbose = 0)[0]
         ERROR_THRESHOLD = 0.25
         results = [[i, r] for i, r in enumerate(res) if r > 0.1]      
 
