@@ -1,5 +1,6 @@
 # Default ignored files
 /venv/
+/build/
 __pycache__/
 /dist/
 /nagonbot.egg-info/

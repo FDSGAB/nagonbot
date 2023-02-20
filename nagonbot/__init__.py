@@ -1,0 +1,1 @@
+from nagonbot import Main

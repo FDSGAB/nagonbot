@@ -28,9 +28,9 @@ import random
 import fugashi
 
 #Bibliotecas de Machine Learning / Deep Learning
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Activation, Dropout
-from tensorflow.keras.optimizers import SGD
+from keras.models import Sequential
+from keras.layers import Dense, Activation, Dropout
+from keras.optimizers import SGD
 
 
 
@@ -46,7 +46,7 @@ from tensorflow.keras.optimizers import SGD
 tagger = fugashi.Tagger()
 
 #Abre o arquivo JSON, o enconding="utf8" é necessário por conta dos caracteres japoneses
-kokoro = json.loads(open("./src/nagonbot/bin/kokoro/kokoro.json", encoding="utf8").read()) #Recebe o arquivo em JSON como, essencialmente, um dicionário em Python
+kokoro = json.loads(open("./nagonbot/bin/data/kokoro.json", encoding="utf8").read()) #Recebe o arquivo em JSON como, essencialmente, um dicionário em Python
 
 
 #Cria as listas de controle 
@@ -85,8 +85,8 @@ words = sorted(set(words))                                          #remove entr
 
 #print("\n\n Words:\n",words)
 
-pickle.dump(words, open('./src/nagonbot/bin/model/words.pkl', 'wb'))
-pickle.dump(classes, open('./src/nagonbot/bin/model/classes.pkl', 'wb'))
+pickle.dump(words, open('./nagonbot/bin/data/model/words.pkl', 'wb'))
+pickle.dump(classes, open('./nagonbot/bin/data/model/classes.pkl', 'wb'))
 
 
 #print("\n\n Classes:\n",classes)
@@ -142,5 +142,5 @@ sgd = SGD(lr=0.01, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
 hist = model.fit(numpy.array(train_x), numpy.array(train_y), epochs=200, batch_size = 5, verbose = 1)
-model.save('./src/nagonbot/bin/model/nagonmodel.h5', hist)
+model.save('./nagonbot/bin/data/model/nagonmodel.h5', hist)
 print("出来ました！")

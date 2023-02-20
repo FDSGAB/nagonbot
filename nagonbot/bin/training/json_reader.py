@@ -9,4 +9,4 @@ class Json_Reader():
 
     def __init__(self) -> None:
         self.tagger = fugashi.Tagger()
-        self.kokoro = json.loads(open("./src/nagonbot/bin/data/kokoro.json", encoding="utf8").read())
+        self.kokoro = json.loads(open("./nagonbot/bin/data/kokoro.json", encoding="utf8").read())
