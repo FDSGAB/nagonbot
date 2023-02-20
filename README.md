@@ -1,4 +1,13 @@
 # nagonbot
+Japanese Chatbot.
+
+## Summary
+- [Project Description](#project-description)
+- [Project Current Status](#project-current-status)
+- [Setup](#setup)
+- [Required Libraries](#required-libraries)
+- [Project Test Package](#project-test-package)
+- [References](#references)
 
 
 ## Project Description
@@ -41,7 +50,7 @@ deactivate
 
 ## Required Libraries
 > __Note__
-Please, while the package does not install all the packages automatticallly, install the following libraries (inside a virtual environment)!!!
+Please, while the package does not install all the packages automatticallly, install the following libraries (inside a virtual environment).
 
 
 ### Keras
@@ -108,9 +117,13 @@ pip install webdriver_manager
 ```
 github page: https://github.com/SergeyPirogov/webdriver_manager
 
-## Project Test package (not working yet)
+## Project Test Package
+> __Warning__
+Not working yet!!!
+
+Since it's the package is not working, it's tentatives are being uploaded in the test server of PyPi. It has a lot of versions, but none of them work properly:
 https://test.pypi.org/project/nagonbot/
 
 ## References
 
-Tensor Flow model was inspired from [Neural Nine] (https://github.com/NeuralNine)'s video: https://www.youtube.com/watch?v=1lwddP0KUEg
+Tensor Flow model was inspired from [Neural Nine](https://github.com/NeuralNine)'s [video](https://www.youtube.com/watch?v=1lwddP0KUEg) on how to make a chatbot.
