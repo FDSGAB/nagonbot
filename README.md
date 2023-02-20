@@ -5,4 +5,6 @@ nagonbot is an attempt at recreating a chat-bot project by [Neural Nine] (https:
 
 The bot is fully functional, but I'll still make some improvements to make it even better.
 
+<https://test.pypi.org/project/nagonbot/0.1.1/>
+
 
