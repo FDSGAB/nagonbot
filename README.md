@@ -40,20 +40,77 @@ deactivate
 ```
 
 ## Required Libraries
+> __Note__
+Please, while the package does not install all the packages automatticallly, install the following libraries (inside a virtual environment)!!!
+
+
 ### Keras
+Install:
+```
+pip install keras
+```
+github page: https://github.com/keras-team/keras
+
 ### Numpy
+Install:
+```
+pip install numpy
+```
+github page: https://github.com/numpy/numpy
+
 ### playsound (probably will be out)
+Install (version 1.2.2 certainly works with nagonbot):
+```
+pip install playsound=1.2.2
+```
+github page: https://github.com/TaylorSMarks/playsound
+
 ### fugashi
+Install:
+```
+pip install fugashi
+```
+github page: https://github.com/polm/fugashi
+
 ### bs4
+```
+pip install bs4
+```
+Doc: https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+
 ### gtts
+```
+pip install gTTS
+```
+github page: https://github.com/pndurette/gTTS
+
 ### unidic-lite
+```
+pip install unidic-lite
+```
+github page: https://github.com/polm/unidic-lite
+
 ### mecab-python3
+```
+pip install mecab-python3
+```
+github page: https://github.com/SamuraiT/mecab-python3
+
 ### selenium
+```
+pip install selenium
+```
+github page: https://github.com/SeleniumHQ/selenium
+
 ### webdriver_manager
+```
+pip install webdriver_manager
+```
+github page: https://github.com/SergeyPirogov/webdriver_manager
 
 ## Project Test package (not working yet)
 https://test.pypi.org/project/nagonbot/
 
 ## References
 
-Tensor Flow model was inspired from this video by [Neural Nine] (https://www.youtube.com/watch?v=1lwddP0KUEg)
+Tensor Flow model was inspired from [Neural Nine] (https://github.com/NeuralNine)'s video: https://www.youtube.com/watch?v=1lwddP0KUEg
