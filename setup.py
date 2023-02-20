@@ -1,11 +1,11 @@
 #py setup.py sdist bdist_wheel
-#py -m twine upload --repository testpypi dist/*
+#py -m twine upload --verbose --repository testpypi dist/*
 
 from setuptools import setup, find_packages
 import codecs
 import os
 
-VERSION = '0.1.9'
+VERSION = '0.1.16'
 DESCRIPTION = 'Japanese Chatbot'
 
 with open('./LICENSE.md', encoding = 'utf8') as license_md:

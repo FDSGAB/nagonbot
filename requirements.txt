@@ -1,10 +1,7 @@
 keras
 numpy
-playsound==1.2.2
 fugashi
-bs4
-gtts
+gTTS
 unidic-lite
-mecab-python3
 selenium
 webdriver_manager
