@@ -10,7 +10,7 @@ nagonbot is a simple chatbot that "speaks" japanese. The name is a reference to 
 
 
 ## Project Test package (not working yet)
-<https://test.pypi.org/project/nagonbot/0.1.1/>
+https://test.pypi.org/project/nagonbot/
 
 ## References
 
