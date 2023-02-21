@@ -1,4 +1,4 @@
-from bin.tools.function_tools.browser import Browser
+from nagonbot.bin.tools.function_tools.browser import Browser
 from bs4 import BeautifulSoup
 import time
 import os

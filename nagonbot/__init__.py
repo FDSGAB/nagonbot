@@ -1,1 +1,1 @@
-from nagonbot import Main
+from .bot import *

@@ -1,10 +1,13 @@
 import os
-from bin.training import *
-from bin.tools.basic_sentence_functions import Sentence
-from bin.tools.voice import Voice
-from bin.tools.bgm import BGM
-from bin.training.json_reader import Json_Reader
-from bin.training.model import Model
+from nagonbot.bin.training import *
+from nagonbot.bin.tools.basic_sentence_functions import Sentence
+from nagonbot.bin.tools.voice import Voice
+from nagonbot.bin.tools.bgm import BGM
+from nagonbot.bin.training.json_reader import Json_Reader
+from nagonbot.bin.training.model import Model
+from nagonbot.bin.training.training import ModelTraining
+from nagonbot.bin.training.sql_to_json import KokoroUpdater
+from nagonbot.bin.training.sql_to_csv import CsvCreator
 import logging
 
 
@@ -12,8 +15,13 @@ class Main():
 
     bgm_switch = False
     bgm_is_playing = False
+    outside_run = False
 
     def __init__(self):
+        KokoroUpdater()
+        model_training = ModelTraining()
+        if model_training.outside_run:
+            self.outside_run = True
         os.environ['WDM_LOG'] = "false"
         logging.getLogger('WDM').setLevel(logging.NOTSET)
         json_file = Json_Reader()

@@ -1,5 +1,5 @@
 import numpy 
-from bin.tools.function_selector import Selector
+from nagonbot.bin.tools.function_selector import Selector
 
 
 class Sentence():

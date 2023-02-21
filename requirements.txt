@@ -1,7 +1,0 @@
-keras
-numpy
-fugashi
-gTTS
-unidic-lite
-selenium
-webdriver_manager
