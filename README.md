@@ -6,7 +6,8 @@ Japanese Chatbot.
 - [Project Current Status](#project-current-status)
 - [Setup](#setup)
 - [Required Libraries](#required-libraries)
-- [Project Test Package](#project-test-package)
+- [Project Packages](#project-packages)
+- [Project Test Packages](#project-test-packages)
 - [References](#references)
 
 
@@ -93,7 +94,7 @@ github page: https://github.com/numpy/numpy
 ### playsound (probably will be out)
 Install (version 1.2.2 certainly works with nagonbot):
 ```
-pip install playsound=1.2.2
+pip install playsound==1.2.2
 ```
 github page: https://github.com/TaylorSMarks/playsound
 
@@ -140,15 +141,15 @@ pip install webdriver_manager
 ```
 github page: https://github.com/SergeyPirogov/webdriver_manager
 
-## Project Package
+## Project Packages
 
 You can also find this project on [PyPi](https://pypi.org/) using this link: https://pypi.org/project/nagonbot/1.0.0/
 
-## Project Test Package
+## Project Test Packages
 > __Warning__
-These test packages do not properly work. Please refer to the [official package](https://pypi.org/project/nagonbot/1.0.0/) on PyPi.
+These test packages do not work properly. Please refer to the [official package](https://pypi.org/project/nagonbot/1.0.0/) on PyPi.
 
-These packages are used to test the package creation and upload process. They are not stable nor funcional releases. Here is the link to the test packages: https://test.pypi.org/project/nagonbot/
+These packages are used to test the package creation and upload process. They are nor stable nor funcional releases. Here is the link to the test packages: https://test.pypi.org/project/nagonbot/
 
 ## References
 
