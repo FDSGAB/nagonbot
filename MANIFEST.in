@@ -1,5 +1,8 @@
-include nagonbot/bin/data/database.db
+#include nagonbot/bin/data/database.db
 include nagonbot/bin/data/kokoro.json
-include nagonbot/bin/data/sound/*.wav
+#include nagonbot/bin/data/sound/*.wav
 include nagonbot/bin/data/model/*.pkl
 include nagonbot/bin/data/model/*.h5
+include nagonbot/bin/data/SpeechPatterns.csv
+include README.md
+include LICENSE.md

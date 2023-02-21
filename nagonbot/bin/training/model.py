@@ -10,6 +10,8 @@ class Model():
     model = None
 
     def __init__(self) -> None:
+
+        #IMPORT LIB
         """ words_pickle = resources.open_binary('nagonbot.bin.data.model', 'words.pkl').read()
         self.words = pickle.load(open(file = words_pickle, mode ='rb'))
         classes_pickle = resources.open_binary('nagonbot.bin.data.model', 'classes.pkl').read()
@@ -18,6 +20,11 @@ class Model():
         self.model = load_model(model_file) """
 
         #ORIGINAL
-        self.words = pickle.load(open('./nagonbot/bin/data/model/words.pkl', 'rb'))
-        self.classes = pickle.load(open('./nagonbot/bin/data/model/classes.pkl', 'rb'))
-        self.model = load_model('./nagonbot/bin/data/model/nagonmodel.h5')
+        try:
+            self.words = pickle.load(open('nagonbot/bin/data/model/words.pkl', 'rb'))
+            self.classes = pickle.load(open('nagonbot/bin/data/model/classes.pkl', 'rb'))
+            self.model = load_model('nagonbot/bin/data/model/nagonmodel.h5')
+        except:
+            self.words = pickle.load(open('words.pkl', 'rb'))
+            self.classes = pickle.load(open('classes.pkl', 'rb'))
+            self.model = load_model('nagonmodel.h5')

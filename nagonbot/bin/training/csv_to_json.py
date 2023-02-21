@@ -1,10 +1,10 @@
-import csv
 import json
+from importlib import resources
 
 class KokoroUpdaterC():
 
     def __init__(self) -> None:
-        csv_file = open('nagonbot/bin/data/SpeechPatterns.csv', "r", encoding='utf-8').read()
+        csv_file = resources.open_text('nagonbot.bin.data', "SpeechPatterns.csv", encoding='utf-8').read()
         lines = csv_file.split("\n")
         records = list()
         for line in lines:
@@ -36,10 +36,10 @@ class KokoroUpdaterC():
         json_dict = {"kokoro" : list_for_json}
 
         try:
-            with open("nagonbot/bin/data/kokoro2.json", mode = "w", encoding = "utf8") as outfile:
+            with open("nagonbot/bin/data/kokoro.json", mode = "w", encoding = "utf8") as outfile:
                 json.dump(json_dict, outfile, ensure_ascii=False, indent=2)
         except:
-            with open("kokoro2.json", mode = "w", encoding = "utf8") as outfile:
+            with open("kokoro.json", mode = "w", encoding = "utf8") as outfile:
                 json.dump(json_dict, outfile, ensure_ascii=False, indent=2)
 
         print("心が更新いたしました！！")

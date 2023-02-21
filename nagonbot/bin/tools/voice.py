@@ -18,9 +18,14 @@ class Voice():
 
     def say(self, message):
         my_aud = gTTS(text = message, lang = 'ja') #converts the text into speech
-        my_aud.save('nagonbot/bin/data/sound/temp/voice.mp3') #save the file with .mp3 extension
-        playsound(sound = 'nagonbot/bin/data/sound/temp/voice.mp3', block = True) #to play it
-        os.remove('nagonbot/bin/data/sound/temp/voice.mp3')
+        try:
+            my_aud.save('nagonbot/bin/data/sound/temp/voice.mp3') #save the file with .mp3 extension
+            playsound(sound = 'nagonbot/bin/data/sound/temp/voice.mp3', block = True) #to play it
+            os.remove('nagonbot/bin/data/sound/temp/voice.mp3')
+        except:
+            my_aud.save('voice.mp3') #save the file with .mp3 extension
+            playsound(sound = 'voice.mp3', block = True) #to play it
+            os.remove('voice.mp3')
 
     def voice_answer(self, answer: str):
         print("\nナゴン:\n" + answer)
