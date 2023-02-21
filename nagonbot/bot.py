@@ -1,7 +1,7 @@
 import os
 from nagonbot.bin.tools.basic_sentence_functions import Sentence
 from nagonbot.bin.tools.voice import Voice
-#from nagonbot.bin.tools.bgm import BGM
+from nagonbot.bin.tools.bgm import BGM
 from nagonbot.bin.training.json_reader import Json_Reader
 from nagonbot.bin.training.model import Model
 from nagonbot.bin.training.training import ModelTraining
@@ -30,24 +30,24 @@ class Main():
 
     def main(self, json_file, model):        
         while True:
-            """ if self.bgm_is_playing == False:
+            if self.bgm_is_playing == False:
                 BGM().play_song(self.bgm_switch)
                 if self.bgm_switch == True:
-                    self.bgm_is_playing = True """
+                    self.bgm_is_playing = True
             message = input("\n自分:\n")
             ints = Sentence().predict_class(message, model.model, model.classes, json_file.tagger, model.words)
             response = Sentence().get_response(ints, json_file.kokoro)
             Voice().voice_answer(response)
             if ints[0]['koko']  in ["さようなら" , "寝るさようなら"]:
                 break
-            """ if ints[0]['koko'] == "BGM_ON":
+            if ints[0]['koko'] == "BGM_ON":
                 if self.bgm_switch == False:
                     self.bgm_switch = True
             if ints[0]['koko'] == "BGM_OFF":
                 if self.bgm_switch == True:
                     self.bgm_switch = False
                     if self.bgm_is_playing:
-                        self.bgm_is_playing = False """
+                        self.bgm_is_playing = False
 
 if __name__ == '__main__':
     Main()
