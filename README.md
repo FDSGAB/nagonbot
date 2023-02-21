@@ -1,4 +1,4 @@
-# nagonbot
+# nagonbot (1.0.0)
 Japanese Chatbot.
 
 ## Summary
@@ -15,7 +15,17 @@ Japanese Chatbot.
 nagonbot is a simple chatbot that "speaks" japanese. The name is a reference to a Heian period japanese writer.
 
 ## Project Current Status
-✅The bot is fully functional, but I'll still make some improvements to make it even better.
+🤖 Version 1.0.0
+
+✅ The bot is fully functional!
+
+✅ You can now install it with PIP!
+
+❌ The [required packages](#required-libraries) do not install automatically with the bot's installation (needs to be done manually).
+
+❌ Some functions like BGM are not available in the release.
+
+🛠 I'm always working on the bot to make it even better (adding functions, bettering the model, updating the package)
 
 ## Setup
 I recommend using a vitual environment (venv) for this project, since it's libraries are not fully optimized.
@@ -50,8 +60,21 @@ deactivate
 
 ## Required Libraries
 > __Note__
-Please, while the package does not install all the packages automatticallly, install the following libraries (inside a virtual environment).
+Please, while the package does not install all the packages automattically, install the following libraries (inside a virtual environment).
 
+### Tensorflow
+Install:
+```
+pip install tensorflow
+```
+github page: https://github.com/tensorflow/tensorflow
+
+### Pygame
+Install:
+```
+pip install pygame
+```
+github page: https://github.com/pygame/pygame
 
 ### Keras
 Install:
@@ -117,12 +140,15 @@ pip install webdriver_manager
 ```
 github page: https://github.com/SergeyPirogov/webdriver_manager
 
+## Project Package
+
+You can also find this project on [PyPi](https://pypi.org/) using this link: https://pypi.org/project/nagonbot/1.0.0/
+
 ## Project Test Package
 > __Warning__
-Not working yet!!!
+These test packages do not properly work. Please refer to the [official package](https://pypi.org/project/nagonbot/1.0.0/) on PyPi.
 
-Since it's the package is not working, it's tentatives are being uploaded in the test server of PyPi. It has a lot of versions, but none of them work properly:
-https://test.pypi.org/project/nagonbot/
+These packages are used to test the package creation and upload process. They are not stable nor funcional releases. Here is the link to the test packages: https://test.pypi.org/project/nagonbot/
 
 ## References
 
