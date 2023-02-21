@@ -7,7 +7,6 @@ Japanese Chatbot.
 - [Setup](#setup)
 - [Required Libraries](#required-libraries)
 - [Project Packages](#project-packages)
-- [Project Test Packages](#project-test-packages)
 - [References](#references)
 
 
@@ -20,7 +19,7 @@ nagonbot is a simple chatbot that "speaks" japanese. The name is a reference to 
 
 ✅ The bot is fully functional!
 
-✅ You can now install it with PIP!
+✅ You can now install it with PIP! (although some issues regarding the installation have been brought up (┬┬﹏┬┬))
 
 ❌ The [required packages](#required-libraries) do not install automatically with the bot's installation (needs to be done manually).
 
@@ -63,93 +62,33 @@ deactivate
 > __Note__
 Please, while the package does not install all the packages automattically, install the following libraries (inside a virtual environment).
 
-### Tensorflow
+For more information on the libraries, please refer to the [Required Libraries Wiki Page](https://github.com/FDSGAB/nagonbot/wiki/Required-Libraries)
+
 Install:
 ```
 pip install tensorflow
-```
-github page: https://github.com/tensorflow/tensorflow
-
-### Pygame
-Install:
-```
 pip install pygame
-```
-github page: https://github.com/pygame/pygame
-
-### Keras
-Install:
-```
 pip install keras
-```
-github page: https://github.com/keras-team/keras
-
-### Numpy
-Install:
-```
 pip install numpy
-```
-github page: https://github.com/numpy/numpy
-
-### playsound (probably will be out)
-Install (version 1.2.2 certainly works with nagonbot):
-```
 pip install playsound==1.2.2
-```
-github page: https://github.com/TaylorSMarks/playsound
-
-### fugashi
-Install:
-```
 pip install fugashi
-```
-github page: https://github.com/polm/fugashi
-
-### beautifulsoup4
-```
 pip install beautifulsoup4
-```
-Doc: https://www.crummy.com/software/BeautifulSoup/bs4/doc/
-
-### gtts
-```
 pip install gTTS
-```
-github page: https://github.com/pndurette/gTTS
-
-### unidic-lite
-```
 pip install unidic-lite
-```
-github page: https://github.com/polm/unidic-lite
-
-### mecab-python3
-```
 pip install mecab-python3
-```
-github page: https://github.com/SamuraiT/mecab-python3
-
-### selenium
-```
 pip install selenium
-```
-github page: https://github.com/SeleniumHQ/selenium
-
-### webdriver_manager
-```
 pip install webdriver_manager
 ```
-github page: https://github.com/SergeyPirogov/webdriver_manager
+
 
 ## Project Packages
 
-You can also find this project on [PyPi](https://pypi.org/) using this link: https://pypi.org/project/nagonbot/1.0.0/
+### Official Packages
+You can find this project's official packages [here](https://pypi.org/project/nagonbot/1.0.0/) on the PyPi site.
 
-## Project Test Packages
-> __Warning__
-These test packages do not work properly. Please refer to the [official package](https://pypi.org/project/nagonbot/1.0.0/) on PyPi.
 
-These packages are used to test the package creation and upload process. They are nor stable nor funcional releases. Here is the link to the test packages: https://test.pypi.org/project/nagonbot/
+### Test Packages
+For information about test packages, please refer to the [Project Test Packages Wiki Page](https://github.com/FDSGAB/nagonbot/wiki/Project-Test-Packages#project-test-packages).
 
 ## References
 
