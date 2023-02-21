@@ -104,9 +104,9 @@ pip install fugashi
 ```
 github page: https://github.com/polm/fugashi
 
-### bs4
+### beautifulsoup4
 ```
-pip install bs4
+pip install beautifulsoup4
 ```
 Doc: https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 
