@@ -1,6 +1,6 @@
 [project]
 name  = "nagonbot"
-version = "1.0.8"
+version = "1.0.9"
 description = "Japanese Chatbot"
 readme = "README.md"
 authors = [
@@ -9,7 +9,6 @@ authors = [
 maintainers = [
     { name = "Gabriel Fioravante Di Sciascio (FDSGAB)" }
 ]
-repository = "https://github.com/FDSGAB/nagonbot"
 license = { file = "LICENSE" }
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -100,7 +99,3 @@ requires = [
     "wheel"
 ]
 build-backend = "setuptools.build_meta"
-
-
-[tool.setuptools.packages.find]
-exclude = ["tests*", "docs*"]
