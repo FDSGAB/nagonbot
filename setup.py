@@ -3,9 +3,7 @@
 #py -m twine upload --verbose --repository testpypi dist/*
 #py -m twine upload dist/*
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
-setup(
-    packages = find_packages(exclude=('tests','docs'))
-)
+setup()
