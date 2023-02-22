@@ -65,6 +65,12 @@ Please, while the package does not install all the packages automattically, inst
 For more information on the libraries, please refer to the [Required Libraries Wiki Page](https://github.com/FDSGAB/nagonbot/wiki/Required-Libraries)
 
 Install:
+
+```
+python -m pip install -r requirements.txt
+```
+or
+
 ```
 pip install tensorflow
 pip install pygame
