@@ -11,6 +11,7 @@ class BGM():
 
     def __init__(self):
         self.bgm_list = os.listdir('nagonbot/bin/data/sound')
+        self.bgm_list.remove("__init__.py")
     
     def pick_song(self):
         picked_random_number = random.randint(0, len(self.bgm_list)-1)
