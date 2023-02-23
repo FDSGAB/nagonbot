@@ -29,7 +29,35 @@ nagonbot is a simple chatbot that "speaks" japanese. The name is a reference to 
 
 ## Setup
 I recommend using a vitual environment (venv) for this project, since it's libraries are not fully optimized.
-Steps:
+
+### Mehod #1 - dowloading the source code (✅ Works!!)
+#### Steps:
+1. Click the "<> Code" green button on [nagonbot's GitHub repository](https://github.com/FDSGAB/nagonbot).
+2. Click the "Download ZIP" option.
+3. Extract the project's code to a location of your liking.
+4. Open the extracted project folder in an IDE of your liking.
+5. Create a virtual environment inside the project folder.
+```
+py -m venv ./myvenv
+```
+6. Activate the virtual environment created in the last step.
+```
+.\myvenv\Scripts\activate
+```
+7. Install the [necessary libraries](#required-libraries).
+```
+python -m pip install -r requirements.txt
+```
+8. Run the test_nagonbot.py file
+9. Exit the virtual environment when done.
+```
+deactivate
+```
+
+
+
+### Method #2 - pip install (❌ Still doesn't work)
+#### Steps:
 
 1. Create a virtual environment in a test folder.
 ```
@@ -59,12 +87,12 @@ deactivate
 ```
 
 ## Required Libraries
-> __Note__
+> __Note__\
 Please, while the package does not install all the packages automattically, install the following libraries (inside a virtual environment).
 
 For more information on the libraries, please refer to the [Required Libraries Wiki Page](https://github.com/FDSGAB/nagonbot/wiki/Required-Libraries)
 
-Install:
+### Install:
 
 ```
 python -m pip install -r requirements.txt
@@ -84,6 +112,25 @@ pip install unidic-lite
 pip install mecab-python3
 pip install selenium
 pip install webdriver_manager
+```
+
+### Uninstalling all pip libraries from your virtual environment:
+> __Warning__\
+***DO NOT RUN THESE COMMANDS IF YOU'RE NOT IN A VIRTUAL ENVIRONMENT OR ELSE, IT WILL DELETE ALL THE LIBRARIES YOU'VE PIP INSTALLED IN YOUR BASE PYTHON!!!***
+
+Creates a .txt file with all current libraries installed with pip
+```bash
+pip freeze > pip_libs.txt
+```
+
+Deletes all the libraries listed inside the pip_libs.txt previously created asking wheter or not to delete each library
+```bash
+pip uninstall -r pip_libs.txt
+```
+
+Deletes all the libraries at once listed inside the pip_libs.txt previously created without asking what to do with each library
+```bash
+pip uninstall -r pip_libs.txt -y
 ```
 
 
