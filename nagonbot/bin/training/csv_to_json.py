@@ -4,8 +4,13 @@ from importlib import resources
 class KokoroUpdaterC():
 
     def __init__(self) -> None:
-        csv_file = resources.open_text('nagonbot.bin.data', "SpeechPatterns.csv", encoding='utf-8').read()
+        try:
+            csv_file = resources.open_text('nagonbot.bin.data', "SpeechPatterns.csv", encoding='utf-8').read()
+        except:
+            csv_file = open('nagonbot/bin/data/SpeechPatterns.csv', mode = 'r', encoding = "utf8").read()
         lines = csv_file.split("\n")
+        print(lines[0])
+        lines.pop(0)
         records = list()
         for line in lines:
             line = line.split(',')
