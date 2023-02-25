@@ -2,17 +2,21 @@
 Japanese Chatbot.
 
 ## Summary
-- [Project Description](#project-description)
+- [About the Project](#about-the-project)
 - [Project Current Status](#project-current-status)
 - [Setup](#setup)
 - [Required Libraries](#required-libraries)
 - [Project Packages](#project-packages)
-- [References](#references)
+- [Project's Wiki](#projects-wiki)
 
 
-## Project Description
+## About the Project
 
 nagonbot is a simple chatbot that "speaks" japanese. The name is a reference to a Heian period japanese writer.
+
+The overall base program structure and the Tensor Flow model was inspired from [Neural Nine](https://github.com/NeuralNine)'s [video](https://www.youtube.com/watch?v=1lwddP0KUEg) on how to make a chatbot. He also has a repository here on GitHub with an automatic bot builder (English) called [neuralintents](https://github.com/NeuralNine/neuralintents) if you want to check it. 
+
+If you want to know more about the name/inpiration of the bot or anything else about the project, you can check the [project's Wiki](https://github.com/FDSGAB/nagonbot/wiki)!
 
 ## Project Current Status
 🤖 Version 1.0.0
@@ -143,6 +147,5 @@ You can find this project's official packages [here](https://pypi.org/project/na
 ### Test Packages
 For information about test packages, please refer to the [Project Test Packages Wiki Page](https://github.com/FDSGAB/nagonbot/wiki/Project-Test-Packages#project-test-packages).
 
-## References
-
-Tensor Flow model was inspired from [Neural Nine](https://github.com/NeuralNine)'s [video](https://www.youtube.com/watch?v=1lwddP0KUEg) on how to make a chatbot.
+## Project's Wiki
+If you want to know more about the code structure or about the project itself, please refer to the [Project's Wiki page](https://github.com/FDSGAB/nagonbot/wiki)
