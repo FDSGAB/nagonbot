@@ -148,4 +148,10 @@ You can find this project's official packages [here](https://pypi.org/project/na
 For information about test packages, please refer to the [Project Test Packages Wiki Page](https://github.com/FDSGAB/nagonbot/wiki/Project-Test-Packages#project-test-packages).
 
 ## Project's Wiki
-If you want to know more about the code structure or about the project itself, please refer to the [Project's Wiki page](https://github.com/FDSGAB/nagonbot/wiki)
+If you want to know more about:
+- the code structure
+- the project itself
+- functions of the bot
+- model anda data files
+
+Please refer to the [Project's Wiki page](https://github.com/FDSGAB/nagonbot/wiki).
