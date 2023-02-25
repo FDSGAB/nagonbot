@@ -152,6 +152,6 @@ If you want to know more about:
 - the code structure
 - the project itself
 - functions of the bot
-- model anda data files
+- model and data files
 
 Please refer to the [Project's Wiki page](https://github.com/FDSGAB/nagonbot/wiki).
